@@ -1,0 +1,15 @@
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\bin\Debug\net8.0\Quizly.Data.deps.json
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\bin\Debug\net8.0\Quizly.Data.runtimeconfig.json
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\bin\Debug\net8.0\Quizly.Data.dll
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\bin\Debug\net8.0\Quizly.Data.pdb
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\obj\Debug\net8.0\Quizly.Data.csproj.AssemblyReference.cache
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\obj\Debug\net8.0\Quizly.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\obj\Debug\net8.0\Quizly.Data.AssemblyInfoInputs.cache
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\obj\Debug\net8.0\Quizly.Data.AssemblyInfo.cs
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\obj\Debug\net8.0\Quizly.Data.csproj.CoreCompileInputs.cache
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\obj\Debug\net8.0\Quizly.Data.sourcelink.json
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\obj\Debug\net8.0\Quizly.Data.dll
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\obj\Debug\net8.0\refint\Quizly.Data.dll
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\obj\Debug\net8.0\Quizly.Data.pdb
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\obj\Debug\net8.0\Quizly.Data.genruntimeconfig.cache
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.Data\obj\Debug\net8.0\ref\Quizly.Data.dll
