@@ -30,14 +30,15 @@
         {
             SuspendLayout();
             // 
-            // LoginForm
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(400, 300);  // Set a proper size
-            Name = "LoginForm";
-            Text = "Login - Quizly";  // Set a title
-            StartPosition = FormStartPosition.CenterScreen;  // Center the form
+            ClientSize = new Size(400, 300);
+            Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Login - Quizly";
+            Load += MainForm_Load;
             ResumeLayout(false);
         }
 
