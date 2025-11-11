@@ -242,41 +242,53 @@ namespace Quizly.UI.UserUC
             return panel;
         }
 
-        private void StartQuiz_Click(object sender, EventArgs e)
+        private async void StartQuiz_Click(object sender, EventArgs e)
         {
             if (sender is Guna2GradientButton button && button.Tag is Quiz quiz)
             {
-                // Validate quiz has questions
-                if (quiz.Questions == null || quiz.Questions.Count == 0)
+                try
+                {
+                    // ✅ Sử dụng async để không block UI
+                    var questionsCount = await _db.Questions
+                        .Where(q => q.QuizId == quiz.Id)
+                        .CountAsync();
+
+                    // Validate quiz has questions
+                    if (questionsCount == 0)
+                    {
+                        MessageBox.Show(
+                            "This quiz has no questions yet. Please add questions before starting.",
+                            "Cannot Start Quiz",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    var mainForm = this.FindForm() as MainForm;
+
+                    if (mainForm != null)
+                    {
+                        // Create and show QuizzForm with the selected quiz
+                        var quizzForm = new QuizzForm(_db, quiz, _currentUser);
+
+                        // Hide MainForm
+                        mainForm.Hide();
+
+						// Show QuizzForm as a modal dialog to keep it open until user finishes
+						quizzForm.ShowDialog(mainForm);
+
+						// After dialog closes, show MainForm again and reload quizzes
+						mainForm.Show();
+						await LoadQuizzesAsync();
+                    }
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(
-                        "This quiz has no questions yet.",
-                        "Cannot Start Quiz",
+                        $"Error starting quiz: {ex.Message}",
+                        "Error",
                         MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    return;
-                }
-
-                var mainForm = this.FindForm() as MainForm;
-
-                if (mainForm != null)
-                {
-                    // Create and show QuizzForm with the selected quiz
-                    var quizzForm = new QuizzForm(_db, quiz, _currentUser);
-
-                    // Hide MainForm
-                    mainForm.Hide();
-
-                    // Show QuizzForm
-                    quizzForm.Show();
-
-                    // When QuizzForm closes, show MainForm again
-                    quizzForm.FormClosed += (s, args) =>
-                    {
-                        mainForm.Show();
-                        // Reload quizzes in case anything changed
-                        LoadQuizzesAsync();
-                    };
+                        MessageBoxIcon.Error);
                 }
             }
         }
@@ -292,10 +304,6 @@ namespace Quizly.UI.UserUC
             }
         }
 
-        private void startQuizz_Click(object sender, EventArgs e)
-        {
-            // This is the old template button - no longer used
-            // Individual quiz panels now have their own Start buttons
-        }
+      
     }
 }

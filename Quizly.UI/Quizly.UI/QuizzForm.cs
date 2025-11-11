@@ -15,11 +15,11 @@ namespace Quizly.UI
         private readonly QuizlyDbContext _db;
         private readonly Quiz _quiz;
         private readonly User _currentUser;
-        private List<Question> _questions;
+        private List<Question> _questions = null!;
         private int _currentQuestionIndex = 0;
-        private Dictionary<int, int?> _userAnswers; // QuestionId -> ChoiceId
+        private Dictionary<int, int?> _userAnswers = null!; // QuestionId -> ChoiceId
         private DateTime _startTime;
-        private System.Windows.Forms.Timer _countdownTimer;
+        private System.Windows.Forms.Timer? _countdownTimer;
         private int _remainingSeconds;
 
         public QuizzForm(QuizlyDbContext db, Quiz quiz, User currentUser)
@@ -54,6 +54,10 @@ namespace Quizly.UI
         public QuizzForm()
         {
             InitializeComponent();
+            // Designer constructor - not used at runtime
+            _db = null!;
+            _quiz = null!;
+            _currentUser = null!;
         }
 
         private async void LoadQuizAsync()
@@ -117,13 +121,13 @@ namespace Quizly.UI
             }
         }
 
-        private void CountdownTimer_Tick(object sender, EventArgs e)
+        private void CountdownTimer_Tick(object? sender, EventArgs e)
         {
             _remainingSeconds--;
 
             if (_remainingSeconds <= 0)
             {
-                _countdownTimer.Stop();
+                _countdownTimer?.Stop();
                 MessageBox.Show("Time's up! Your quiz will be submitted automatically.",
                     "Time Expired", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SubmitQuiz();
@@ -220,7 +224,7 @@ namespace Quizly.UI
             // Restore selection if exists
             if (_userAnswers.ContainsKey(questionId) && _userAnswers[questionId].HasValue)
             {
-                int selectedChoiceId = _userAnswers[questionId].Value;
+                int selectedChoiceId = _userAnswers[questionId]!.Value;
 
                 if (A.Tag != null && (int)A.Tag == selectedChoiceId)
                     A.Checked = true;
@@ -233,7 +237,7 @@ namespace Quizly.UI
             }
         }
 
-        private void AnswerButton_Click(object sender, EventArgs e)
+        private void AnswerButton_Click(object? sender, EventArgs e)
         {
             if (sender is Guna2TileButton button && button.Tag != null)
             {
@@ -245,7 +249,7 @@ namespace Quizly.UI
             }
         }
 
-        private void NextBtn_Click(object sender, EventArgs e)
+        private void NextBtn_Click(object? sender, EventArgs e)
         {
             if (_currentQuestionIndex < _questions.Count - 1)
             {

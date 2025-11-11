@@ -290,7 +290,7 @@ namespace Quizly.UI.UserUC
                     Description = desTb?.Text?.Trim() ?? "",
                     Tags = tagsTb?.Text?.Trim() ?? "",
                     TimeLimitSeconds = timeLimitSeconds,
-                    IsPublished = false, // Default to unpublished
+                    IsPublished = true, // Default to published - automatically visible in quiz list
                     CreatedById = _currentUser.Id,
                     Questions = new List<Question>()
                 };
@@ -371,6 +371,228 @@ namespace Quizly.UI.UserUC
                 // Re-enable save button and restore cursor
                 saveBtn.Enabled = true;
                 this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void exportBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Validate if there are questions to export
+                if (questions.Count == 0)
+                {
+                    MessageBox.Show("No questions to export. Please add questions first.",
+                        "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Create SaveFileDialog
+                using (var saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "Excel Files|*.xlsx";
+                    saveFileDialog.Title = "Export Questions to Excel";
+                    saveFileDialog.FileName = "QuizQuestions.xlsx";
+                    saveFileDialog.DefaultExt = "xlsx";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Create Excel package
+                        using (var package = new OfficeOpenXml.ExcelPackage())
+                        {
+                            // Add a worksheet
+                            var worksheet = package.Workbook.Worksheets.Add("Questions");
+
+                            // Add headers
+                            worksheet.Cells[1, 1].Value = "No";
+                            worksheet.Cells[1, 2].Value = "Question";
+                            worksheet.Cells[1, 3].Value = "Answer A";
+                            worksheet.Cells[1, 4].Value = "Answer B";
+                            worksheet.Cells[1, 5].Value = "Answer C";
+                            worksheet.Cells[1, 6].Value = "Answer D";
+                            worksheet.Cells[1, 7].Value = "Correct Answer";
+
+                            // Style headers
+                            using (var range = worksheet.Cells[1, 1, 1, 7])
+                            {
+                                range.Style.Font.Bold = true;
+                                range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                                range.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(79, 65, 159));
+                                range.Style.Font.Color.SetColor(Color.White);
+                            }
+
+                            // Add question data
+                            int row = 2;
+                            foreach (var question in questions)
+                            {
+                                worksheet.Cells[row, 1].Value = question.No;
+                                worksheet.Cells[row, 2].Value = question.Question;
+                                worksheet.Cells[row, 3].Value = question.AnswerA;
+                                worksheet.Cells[row, 4].Value = question.AnswerB;
+                                worksheet.Cells[row, 5].Value = question.AnswerC;
+                                worksheet.Cells[row, 6].Value = question.AnswerD;
+                                worksheet.Cells[row, 7].Value = question.CorrectAnswer;
+                                row++;
+                            }
+
+                            // Auto-fit columns
+                            worksheet.Cells.AutoFitColumns();
+
+                            // Save to file
+                            var file = new FileInfo(saveFileDialog.FileName);
+                            package.SaveAs(file);
+
+                            MessageBox.Show($"Successfully exported {questions.Count} question(s) to Excel!",
+                                "Export Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while exporting:\n{ex.Message}",
+                    "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void importBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Create OpenFileDialog
+                using (var openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Filter = "Excel Files|*.xlsx;*.xls";
+                    openFileDialog.Title = "Import Questions from Excel";
+                    openFileDialog.DefaultExt = "xlsx";
+
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        var importedQuestions = new List<QuestionRow>();
+
+                        // Read Excel file
+                        var file = new FileInfo(openFileDialog.FileName);
+                        using (var package = new OfficeOpenXml.ExcelPackage(file))
+                        {
+                            // Get the first worksheet
+                            var worksheet = package.Workbook.Worksheets.FirstOrDefault();
+
+                            if (worksheet == null)
+                            {
+                                MessageBox.Show("The Excel file does not contain any worksheets.",
+                                    "Import Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            // Get the number of rows
+                            int rowCount = worksheet.Dimension?.Rows ?? 0;
+
+                            if (rowCount <= 1)
+                            {
+                                MessageBox.Show("The Excel file does not contain any data.",
+                                    "Import Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            // Read data starting from row 2 (skip header)
+                            for (int row = 2; row <= rowCount; row++)
+                            {
+                                // Read question data
+                                var questionText = worksheet.Cells[row, 2].Value?.ToString()?.Trim();
+                                var answerA = worksheet.Cells[row, 3].Value?.ToString()?.Trim();
+                                var answerB = worksheet.Cells[row, 4].Value?.ToString()?.Trim();
+                                var answerC = worksheet.Cells[row, 5].Value?.ToString()?.Trim();
+                                var answerD = worksheet.Cells[row, 6].Value?.ToString()?.Trim();
+                                var correctAnswer = worksheet.Cells[row, 7].Value?.ToString()?.Trim()?.ToUpper();
+
+                                // Validate required fields
+                                if (string.IsNullOrWhiteSpace(questionText) ||
+                                    string.IsNullOrWhiteSpace(answerA) ||
+                                    string.IsNullOrWhiteSpace(answerB) ||
+                                    string.IsNullOrWhiteSpace(answerC) ||
+                                    string.IsNullOrWhiteSpace(answerD) ||
+                                    string.IsNullOrWhiteSpace(correctAnswer))
+                                {
+                                    continue; // Skip incomplete rows
+                                }
+
+                                // Validate correct answer
+                                if (!new[] { "A", "B", "C", "D" }.Contains(correctAnswer))
+                                {
+                                    continue; // Skip invalid correct answers
+                                }
+
+                                // Create question row
+                                var questionRow = new QuestionRow
+                                {
+                                    No = importedQuestions.Count + 1,
+                                    Question = questionText,
+                                    AnswerA = answerA,
+                                    AnswerB = answerB,
+                                    AnswerC = answerC,
+                                    AnswerD = answerD,
+                                    CorrectAnswer = correctAnswer
+                                };
+
+                                importedQuestions.Add(questionRow);
+                            }
+                        }
+
+                        // Check if any questions were imported
+                        if (importedQuestions.Count == 0)
+                        {
+                            MessageBox.Show("No valid questions found in the Excel file.",
+                                "Import Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        // Ask user if they want to replace or append
+                        DialogResult result = DialogResult.Cancel;
+                        if (questions.Count > 0)
+                        {
+                            result = MessageBox.Show(
+                                $"Found {importedQuestions.Count} question(s) in the file.\n\n" +
+                                "Click YES to replace existing questions.\n" +
+                                "Click NO to append to existing questions.\n" +
+                                "Click CANCEL to abort import.",
+                                "Import Questions",
+                                MessageBoxButtons.YesNoCancel,
+                                MessageBoxIcon.Question);
+                        }
+                        else
+                        {
+                            result = DialogResult.Yes; // No existing questions, just add
+                        }
+
+                        if (result == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+
+                        // Clear existing questions if user chose to replace
+                        if (result == DialogResult.Yes)
+                        {
+                            questions.Clear();
+                        }
+
+                        // Add imported questions and renumber
+                        foreach (var question in importedQuestions)
+                        {
+                            question.No = questions.Count + 1;
+                            questions.Add(question);
+                        }
+
+                        MessageBox.Show(
+                            $"Successfully imported {importedQuestions.Count} question(s)!",
+                            "Import Successful",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while importing:\n{ex.Message}",
+                    "Import Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

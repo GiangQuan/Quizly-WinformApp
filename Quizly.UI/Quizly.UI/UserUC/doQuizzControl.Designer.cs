@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             quizzPanel = new Guna.UI2.WinForms.Guna2Panel();
             desQuizz = new Guna.UI2.WinForms.Guna2HtmlLabel();
             titleQuizz = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -52,13 +52,13 @@
             quizzPanel.Controls.Add(desQuizz);
             quizzPanel.Controls.Add(titleQuizz);
             quizzPanel.Controls.Add(startQuizz);
-            quizzPanel.CustomizableEdges = customizableEdges9;
+            quizzPanel.CustomizableEdges = customizableEdges3;
             quizzPanel.FillColor = Color.White;
             quizzPanel.Location = new Point(26, 94);
             quizzPanel.Name = "quizzPanel";
             quizzPanel.ShadowDecoration.BorderRadius = 15;
             quizzPanel.ShadowDecoration.Color = Color.DimGray;
-            quizzPanel.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            quizzPanel.ShadowDecoration.CustomizableEdges = customizableEdges4;
             quizzPanel.ShadowDecoration.Depth = 10;
             quizzPanel.ShadowDecoration.Enabled = true;
             quizzPanel.Size = new Size(849, 104);
@@ -91,7 +91,7 @@
             startQuizz.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             startQuizz.BackColor = Color.Transparent;
             startQuizz.BorderRadius = 30;
-            startQuizz.CustomizableEdges = customizableEdges7;
+            startQuizz.CustomizableEdges = customizableEdges1;
             startQuizz.DisabledState.BorderColor = Color.DarkGray;
             startQuizz.DisabledState.CustomBorderColor = Color.DarkGray;
             startQuizz.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -103,11 +103,11 @@
             startQuizz.ForeColor = Color.White;
             startQuizz.Location = new Point(733, 18);
             startQuizz.Name = "startQuizz";
-            startQuizz.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            startQuizz.ShadowDecoration.CustomizableEdges = customizableEdges2;
             startQuizz.Size = new Size(90, 68);
             startQuizz.TabIndex = 12;
             startQuizz.Text = "Start";
-            startQuizz.Click += startQuizz_Click;
+            startQuizz.Click += StartQuiz_Click;
             // 
             // guna2HtmlLabel1
             // 
@@ -125,7 +125,7 @@
             backBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             backBtn.BackColor = Color.Transparent;
             backBtn.BorderRadius = 16;
-            backBtn.CustomizableEdges = customizableEdges11;
+            backBtn.CustomizableEdges = customizableEdges5;
             backBtn.DisabledState.BorderColor = Color.DarkGray;
             backBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             backBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -137,7 +137,7 @@
             backBtn.ForeColor = Color.White;
             backBtn.Location = new Point(759, 36);
             backBtn.Name = "backBtn";
-            backBtn.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            backBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
             backBtn.Size = new Size(100, 33);
             backBtn.TabIndex = 15;
             backBtn.Text = "Back";

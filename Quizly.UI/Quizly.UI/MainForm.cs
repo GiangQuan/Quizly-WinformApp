@@ -13,6 +13,7 @@ namespace Quizly.UI
         public User? CurrentUser { get; set; }
         private createQuizzControl? _createQuizControl;
         private doQuizzControl? _doQuizControl;
+        private historyControl? _historyControl; // Thêm field
         private readonly QuizlyDbContext _db;
 
 
@@ -34,6 +35,12 @@ namespace Quizly.UI
             // Wire the startBtn click event
             if (startBtn != null)
                 startBtn.Click += startBtn_Click;
+
+            // Wire the historyBtn click event
+            if (historyBtn != null)
+                historyBtn.Click += historyBtn_Click;
+
+   
         }
 
         private void MainForm_Load(object? sender, EventArgs e)
@@ -82,6 +89,19 @@ namespace Quizly.UI
             _doQuizControl.BringToFront();
         }
 
+        // Thêm method để show history
+        private void ShowHistoryControl()
+        {
+            if (_historyControl != null) return;
+
+            // Pass database context and current user to the control
+            _historyControl = new historyControl(_db, CurrentUser);
+            _historyControl.Dock = DockStyle.Fill;
+
+            contentPanel.Controls.Add(_historyControl);
+            _historyControl.BringToFront();
+        }
+
         // Restore main content
         public void ShowMainContent()
         {
@@ -101,7 +121,13 @@ namespace Quizly.UI
                 _doQuizControl = null;
             }
 
-            
+            // Remove history control if exists
+            if (_historyControl != null)
+            {
+                contentPanel.Controls.Remove(_historyControl);
+                _historyControl.Dispose();
+                _historyControl = null;
+            }
 
             // If you need to reload static content designed in Designer,
             // you can call a method to restore / re-add controls.
@@ -116,6 +142,11 @@ namespace Quizly.UI
         private void startBtn_Click(object sender, EventArgs e)
         {
             ShowDoQuizControl();
+        }
+
+        private void historyBtn_Click(object sender, EventArgs e)
+        {
+            ShowHistoryControl();
         }
 
         private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)

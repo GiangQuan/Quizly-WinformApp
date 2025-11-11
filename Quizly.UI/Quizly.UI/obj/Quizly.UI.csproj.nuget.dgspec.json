@@ -247,6 +247,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.5.1, )"
+            },
             "Guna.UI2.WinForms": {
               "target": "Package",
               "version": "[2.0.4.7, )"

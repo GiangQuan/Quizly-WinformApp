@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Quizly.Data.Migrations
 {
     [DbContext(typeof(QuizlyDbContext))]
-    [Migration("20251110130538_ConfigureCascadeDelete")]
-    partial class ConfigureCascadeDelete
+    [Migration("20251111151204_ConfigureQuizQuestionRelationships")]
+    partial class ConfigureQuizQuestionRelationships
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,6 +78,148 @@ namespace Quizly.Data.Migrations
                     b.HasIndex("QuestionId");
 
                     b.ToTable("Choices");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsCorrect = false,
+                            QuestionId = 1,
+                            Text = "3"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsCorrect = true,
+                            QuestionId = 1,
+                            Text = "4"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            IsCorrect = false,
+                            QuestionId = 1,
+                            Text = "5"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            IsCorrect = false,
+                            QuestionId = 1,
+                            Text = "6"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            IsCorrect = false,
+                            QuestionId = 2,
+                            Text = "3"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            IsCorrect = false,
+                            QuestionId = 2,
+                            Text = "4"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            IsCorrect = true,
+                            QuestionId = 2,
+                            Text = "5"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            IsCorrect = false,
+                            QuestionId = 2,
+                            Text = "6"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            IsCorrect = false,
+                            QuestionId = 3,
+                            Text = "10"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            IsCorrect = false,
+                            QuestionId = 3,
+                            Text = "11"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            IsCorrect = true,
+                            QuestionId = 3,
+                            Text = "12"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            IsCorrect = false,
+                            QuestionId = 3,
+                            Text = "13"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            IsCorrect = false,
+                            QuestionId = 4,
+                            Text = "London"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            IsCorrect = true,
+                            QuestionId = 4,
+                            Text = "Paris"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            IsCorrect = false,
+                            QuestionId = 4,
+                            Text = "Berlin"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            IsCorrect = false,
+                            QuestionId = 4,
+                            Text = "Madrid"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            IsCorrect = false,
+                            QuestionId = 5,
+                            Text = "5"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            IsCorrect = false,
+                            QuestionId = 5,
+                            Text = "6"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            IsCorrect = true,
+                            QuestionId = 5,
+                            Text = "7"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            IsCorrect = false,
+                            QuestionId = 5,
+                            Text = "8"
+                        });
                 });
 
             modelBuilder.Entity("Question", b =>
@@ -106,6 +248,48 @@ namespace Quizly.Data.Migrations
                     b.HasIndex("QuizId");
 
                     b.ToTable("Questions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Order = 1,
+                            QuizId = 1,
+                            Text = "What is 2 + 2?",
+                            Type = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Order = 2,
+                            QuizId = 1,
+                            Text = "What is 10 - 5?",
+                            Type = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Order = 3,
+                            QuizId = 1,
+                            Text = "What is 3 × 4?",
+                            Type = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Order = 1,
+                            QuizId = 2,
+                            Text = "What is the capital of France?",
+                            Type = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Order = 2,
+                            QuizId = 2,
+                            Text = "How many continents are there?",
+                            Type = 0
+                        });
                 });
 
             modelBuilder.Entity("Quiz", b =>
@@ -142,6 +326,28 @@ namespace Quizly.Data.Migrations
                     b.HasIndex("CreatedById");
 
                     b.ToTable("Quizzes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedById = 1,
+                            Description = "Test your basic math skills",
+                            IsPublished = true,
+                            Tags = "math, basic, arithmetic",
+                            TimeLimitSeconds = 600,
+                            Title = "Math Quiz - Basic"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedById = 1,
+                            Description = "Test your general knowledge",
+                            IsPublished = true,
+                            Tags = "general, knowledge",
+                            TimeLimitSeconds = 0,
+                            Title = "General Knowledge"
+                        });
                 });
 
             modelBuilder.Entity("Quizly.Data.Models.User", b =>
@@ -176,6 +382,26 @@ namespace Quizly.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DisplayName = "Administrator",
+                            Email = "admin@quizly.com",
+                            PasswordHash = "6G94qKPK8LYNjnTllCqm2G3BUM08AzOK7yW30tfjrMc=",
+                            Role = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DisplayName = "Test User",
+                            Email = "user@quizly.com",
+                            PasswordHash = "PnwZV2SIhigW8TtRLKzz5LqX3ZckPqC9airRZC2GunI=",
+                            Role = 0
+                        });
                 });
 
             modelBuilder.Entity("Result", b =>
@@ -218,7 +444,7 @@ namespace Quizly.Data.Migrations
                     b.HasOne("Question", "Question")
                         .WithMany()
                         .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Result", "Result")
@@ -229,7 +455,8 @@ namespace Quizly.Data.Migrations
 
                     b.HasOne("Choice", "SelectedChoice")
                         .WithMany()
-                        .HasForeignKey("SelectedChoiceId");
+                        .HasForeignKey("SelectedChoiceId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Question");
 

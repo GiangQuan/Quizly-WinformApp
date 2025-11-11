@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Quizly.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class ConfigureCascadeDelete : Migration
+    public partial class ConfigureQuizQuestionRelationships : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -146,14 +148,70 @@ namespace Quizly.Data.Migrations
                         name: "FK_AttemptDetails_Questions_QuestionId",
                         column: x => x.QuestionId,
                         principalTable: "Questions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_AttemptDetails_Results_ResultId",
                         column: x => x.ResultId,
                         principalTable: "Results",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "CreatedAt", "DisplayName", "Email", "PasswordHash", "Role" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrator", "admin@quizly.com", "6G94qKPK8LYNjnTllCqm2G3BUM08AzOK7yW30tfjrMc=", 2 },
+                    { 2, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Test User", "user@quizly.com", "PnwZV2SIhigW8TtRLKzz5LqX3ZckPqC9airRZC2GunI=", 0 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Quizzes",
+                columns: new[] { "Id", "CreatedById", "Description", "IsPublished", "Tags", "TimeLimitSeconds", "Title" },
+                values: new object[,]
+                {
+                    { 1, 1, "Test your basic math skills", true, "math, basic, arithmetic", 600, "Math Quiz - Basic" },
+                    { 2, 1, "Test your general knowledge", true, "general, knowledge", 0, "General Knowledge" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Questions",
+                columns: new[] { "Id", "Order", "QuizId", "Text", "Type" },
+                values: new object[,]
+                {
+                    { 1, 1, 1, "What is 2 + 2?", 0 },
+                    { 2, 2, 1, "What is 10 - 5?", 0 },
+                    { 3, 3, 1, "What is 3 × 4?", 0 },
+                    { 4, 1, 2, "What is the capital of France?", 0 },
+                    { 5, 2, 2, "How many continents are there?", 0 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Choices",
+                columns: new[] { "Id", "IsCorrect", "QuestionId", "Text" },
+                values: new object[,]
+                {
+                    { 1, false, 1, "3" },
+                    { 2, true, 1, "4" },
+                    { 3, false, 1, "5" },
+                    { 4, false, 1, "6" },
+                    { 5, false, 2, "3" },
+                    { 6, false, 2, "4" },
+                    { 7, true, 2, "5" },
+                    { 8, false, 2, "6" },
+                    { 9, false, 3, "10" },
+                    { 10, false, 3, "11" },
+                    { 11, true, 3, "12" },
+                    { 12, false, 3, "13" },
+                    { 13, false, 4, "London" },
+                    { 14, true, 4, "Paris" },
+                    { 15, false, 4, "Berlin" },
+                    { 16, false, 4, "Madrid" },
+                    { 17, false, 5, "5" },
+                    { 18, false, 5, "6" },
+                    { 19, true, 5, "7" },
+                    { 20, false, 5, "8" }
                 });
 
             migrationBuilder.CreateIndex(

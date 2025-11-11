@@ -158,7 +158,7 @@ namespace Quizly.UI
             usernameLabel.BackColor = Color.Transparent;
             usernameLabel.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
             usernameLabel.ForeColor = SystemColors.ControlLightLight;
-            usernameLabel.Location = new Point(898, 32);
+            usernameLabel.Location = new Point(838, 32);
             usernameLabel.Name = "usernameLabel";
             usernameLabel.Size = new Size(45, 25);
             usernameLabel.TabIndex = 11;

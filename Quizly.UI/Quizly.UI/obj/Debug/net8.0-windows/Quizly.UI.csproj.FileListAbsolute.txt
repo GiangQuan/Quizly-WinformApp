@@ -1,3 +1,4 @@
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\appsettings.json
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Quizly.UI.exe
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Quizly.UI.deps.json
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Quizly.UI.runtimeconfig.json
@@ -6,6 +7,7 @@ C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\De
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Azure.Core.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Azure.Identity.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Guna.UI2.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Humanizer.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Microsoft.Build.Locator.dll
@@ -72,6 +74,7 @@ C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\De
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\System.Formats.Asn1.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\System.Management.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\System.Memory.Data.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\System.Runtime.Caching.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
@@ -149,6 +152,7 @@ C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\De
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Quizly.Core.dll
@@ -156,6 +160,12 @@ C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\De
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Quizly.Core.pdb
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Quizly.Data.pdb
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.csproj.AssemblyReference.cache
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.LoginForm.resources
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.MainForm.resources
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.QuizzForm.resources
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.UserUC.createQuizzControl.resources
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.UserUC.doQuizzControl.resources
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.UserUC.historyControl.resources
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.csproj.GenerateResource.cache
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.AssemblyInfoInputs.cache
@@ -168,13 +178,10 @@ C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\De
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.pdb
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.genruntimeconfig.cache
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\ref\Quizly.UI.dll
-C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.LoginForm.resources
-C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.MainForm.resources
-C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Guna.UI2.dll
-C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\System.Management.dll
-C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
-C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\appsettings.json
-C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.UserUC.createQuizzControl.resources
-C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.QuizzForm.resources
-C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.UserUC.doQuizzControl.resources
-C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.UserUC.historyControl.resources
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\EPPlus.dll
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\EPPlus.Interfaces.dll
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\EPPlus.System.Drawing.dll
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\System.Drawing.Common.dll
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
