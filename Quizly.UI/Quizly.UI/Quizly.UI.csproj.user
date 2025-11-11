@@ -7,5 +7,17 @@
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="QuizzForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserUC\createQuizzControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserUC\doQuizzControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserUC\historyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

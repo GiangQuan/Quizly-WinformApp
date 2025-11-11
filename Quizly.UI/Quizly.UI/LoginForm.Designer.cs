@@ -46,13 +46,13 @@
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            errorLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             loginBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            errorLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2CustomGradientPanel1.SuspendLayout();
             guna2CustomGradientPanel2.SuspendLayout();
             SuspendLayout();
@@ -80,7 +80,7 @@
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2CustomGradientPanel1.Size = new Size(874, 473);
             guna2CustomGradientPanel1.TabIndex = 0;
-            
+            guna2CustomGradientPanel1.Paint += guna2CustomGradientPanel1_Paint;
             // 
             // guna2HtmlLabel6
             // 
@@ -134,6 +134,17 @@
             guna2CustomGradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2CustomGradientPanel2.Size = new Size(251, 290);
             guna2CustomGradientPanel2.TabIndex = 0;
+            // 
+            // errorLabel
+            // 
+            errorLabel.BackColor = Color.Transparent;
+            errorLabel.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            errorLabel.ForeColor = SystemColors.ControlDarkDark;
+            errorLabel.Location = new Point(22, 190);
+            errorLabel.Name = "errorLabel";
+            errorLabel.Size = new Size(3, 2);
+            errorLabel.TabIndex = 6;
+            errorLabel.Text = null;
             // 
             // loginBtn
             // 
@@ -222,21 +233,12 @@
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.ForeColor = Color.DimGray;
             guna2HtmlLabel1.Location = new Point(22, 24);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(201, 27);
             guna2HtmlLabel1.TabIndex = 0;
             guna2HtmlLabel1.Text = "Login to your account";
-            // 
-            // errorLabel
-            // 
-            errorLabel.BackColor = Color.Transparent;
-            errorLabel.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            errorLabel.ForeColor = SystemColors.ControlDarkDark;
-            errorLabel.Location = new Point(22, 190);
-            errorLabel.Name = "errorLabel";
-            errorLabel.Size = new Size(3, 2);
-            errorLabel.TabIndex = 6;
             // 
             // LoginForm
             // 
@@ -248,7 +250,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "LoginForm";
+            Text = "`";
             Load += LoginForm_Load;
             guna2CustomGradientPanel1.ResumeLayout(false);
             guna2CustomGradientPanel1.PerformLayout();

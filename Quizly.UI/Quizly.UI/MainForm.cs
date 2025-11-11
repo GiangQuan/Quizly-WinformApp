@@ -1,11 +1,8 @@
-﻿using Guna.UI2.WinForms;
-using Guna.UI2.WinForms.Enums;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
 using Quizly.Data;
 using Quizly.Data.Models;
+using Quizly.UI.UserUC;
 using System;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -13,176 +10,117 @@ namespace Quizly.UI
 {
     public partial class MainForm : Form
     {
-        private readonly QuizlyDbContext _db;
         public User? CurrentUser { get; set; }
+        private createQuizzControl? _createQuizControl;
+        private doQuizzControl? _doQuizControl;
+        private readonly QuizlyDbContext _db;
 
-        private Guna2GradientPanel bgPanel = null!;
-        private Label lblWelcome = null!;
-        private Guna2Button btnLogout = null!;
-        private Guna2DataGridView quizGrid = null!;
-        private Guna2Button btnPlay = null!;
-        private Label lblTitle = null!;
 
         public MainForm(QuizlyDbContext db)
         {
-            _db = db;
-            InitializeControls();
-        }
-
-        private void InitializeControls()
-        {
-            this.Text = "Quizly - Dashboard";
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Size = new Size(800, 500);
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.DoubleBuffered = true;
-
-            // === Gradient Background ===
-            bgPanel = new Guna2GradientPanel()
-            {
-                Dock = DockStyle.Fill,
-                FillColor = ColorTranslator.FromHtml("#4A148C"),
-                FillColor2 = ColorTranslator.FromHtml("#7B1FA2"),
-                GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal
-            };
-            this.Controls.Add(bgPanel);
-
-            // === Title ===
-            lblTitle = new Label()
-            {
-                Text = "Available Quizzes",
-                Font = new Font("Segoe UI", 18, FontStyle.Bold),
-                ForeColor = Color.White,
-                AutoSize = false,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Dock = DockStyle.Top,
-                Height = 60
-            };
-            bgPanel.Controls.Add(lblTitle);
-
-            // === Welcome label ===
-            lblWelcome = new Label()
-            {
-                Text = "Welcome!",
-                Font = new Font("Segoe UI", 10, FontStyle.Italic),
-                ForeColor = Color.White,
-                AutoSize = true,
-                Location = new Point(20, 15)
-            };
-            bgPanel.Controls.Add(lblWelcome);
-
-            // === Logout button ===
-            btnLogout = new Guna2Button()
-            {
-                Text = "Logout",
-                Size = new Size(100, 35),
-                BorderRadius = 8,
-                Location = new Point(670, 15),
-                FillColor = Color.FromArgb(255, 64, 129),
-                HoverState = { FillColor = Color.FromArgb(244, 67, 54) },
-                Font = new Font("Segoe UI", 9, FontStyle.Bold),
-                ForeColor = Color.White
-            };
-            btnLogout.Click += BtnLogout_Click;
-            bgPanel.Controls.Add(btnLogout);
-
-            // === Quiz Grid ===
-            quizGrid = new Guna2DataGridView()
-            {
-                Location = new Point(60, 100),
-                Size = new Size(680, 280),
-                
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
-                Theme = DataGridViewPresetThemes.DeepPurple,
-                ReadOnly = true,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                RowHeadersVisible = false
-            };
-            bgPanel.Controls.Add(quizGrid);
-
-            // === Play button ===
-            btnPlay = new Guna2Button()
-            {
-                Text = "Play Quiz",
-                BorderRadius = 10,
-                Size = new Size(200, 45),
-                Location = new Point(300, 400),
-                Font = new Font("Segoe UI", 11, FontStyle.Bold),
-                FillColor = ColorTranslator.FromHtml("#673AB7"),
-                HoverState = { FillColor = ColorTranslator.FromHtml("#5E35B1") },
-                ForeColor = Color.White
-            };
-            btnPlay.Click += BtnPlay_Click;
-            bgPanel.Controls.Add(btnPlay);
-
+            _db = db ?? throw new ArgumentNullException(nameof(db));
+            InitializeComponent(); // gọi phiên bản do Designer sinh ra
+            // nếu bạn muốn thêm handler cho các control (nếu chưa auto-wire)
             this.Load += MainForm_Load;
+
+            // đảm bảo event handlers cho các nút Designer (nếu chưa có)
+            if (logOutBtn != null)
+                logOutBtn.Click += logOutBtn_Click;
+
+            // Wire the createBtn click event
+            if (createBtn != null)
+                createBtn.Click += createBtn_Click;
+
+            // Wire the startBtn click event
+            if (startBtn != null)
+                startBtn.Click += startBtn_Click;
         }
 
         private void MainForm_Load(object? sender, EventArgs e)
         {
-            if (CurrentUser != null)
-                lblWelcome.Text = $"Welcome, {CurrentUser.DisplayName}!";
-
-            LoadQuizList();
-        }
-
-        private void LoadQuizList()
-        {
-            var quizzes = _db.Quizzes
-                .AsNoTracking()
-                .Include(q => q.Questions)
-                .Select(q => new
-                {
-                    q.Id,
-                    q.Title,
-                    q.Description,
-                    QuestionCount = q.Questions.Count,
-                    q.IsPublished,
-                    q.Tags
-                })
-                .ToList();
-
-            quizGrid.DataSource = quizzes;
-        }
-
-        private void BtnPlay_Click(object? sender, EventArgs e)
-        {
-            if (quizGrid.CurrentRow == null)
+            // Hiển thị tên user nếu có
+            if (CurrentUser != null && usernameLabel != null)
             {
-                MessageBox.Show("Please select a quiz to play.");
-                return;
+                usernameLabel.Text = CurrentUser.DisplayName ?? CurrentUser.Email;
+                welcomeLabel.Text = $"Welcome back, {CurrentUser.DisplayName ?? CurrentUser.Email}";
             }
-
-            var quizId = (int)quizGrid.CurrentRow.Cells["Id"].Value;
-            var quiz = _db.Quizzes
-                .Include(q => q.Questions)
-                .ThenInclude(q => q.Choices)
-                .FirstOrDefault(q => q.Id == quizId);
-
-            if (quiz == null)
-            {
-                MessageBox.Show("Quiz not found.");
-                return;
-            }
-
-            MessageBox.Show($"Starting quiz: {quiz.Title}\nQuestions: {quiz.Questions.Count}");
-
-            // 🚧 Sau này bạn sẽ mở PlayQuizForm tại đây:
-            // var playForm = new PlayQuizForm(_db, quiz, CurrentUser);
-            // playForm.ShowDialog();
         }
 
-        private void BtnLogout_Click(object? sender, EventArgs e)
+        // handler cho logout (designer wired logOutBtn_Click)
+        private void logOutBtn_Click(object? sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 this.Hide();
-                using var scope = Program.CreateScope().Services.CreateScope();
-                var login = scope.ServiceProvider.GetRequiredService<LoginForm>();
-                login.ShowDialog();
-                this.Close();
             }
+        }
+
+        // Show create quiz UC
+        private void ShowCreateQuizControl()
+        {
+            if (_createQuizControl != null) return;
+
+            // Pass database context and current user to the control
+            _createQuizControl = new createQuizzControl(_db, CurrentUser);
+            ((Control)_createQuizControl).Dock = DockStyle.Fill;
+
+            contentPanel.Controls.Add((Control)_createQuizControl);
+            ((Control)_createQuizControl).BringToFront();
+        }
+
+        // Show do quiz UC
+        private void ShowDoQuizControl()
+        {
+            if (_doQuizControl != null) return;
+
+            // Pass database context and current user to the control
+            _doQuizControl = new doQuizzControl(_db, CurrentUser);
+            ((Control)_doQuizControl).Dock = DockStyle.Fill;
+
+                
+            contentPanel.Controls.Add(_doQuizControl);
+            _doQuizControl.BringToFront();
+        }
+
+        // Restore main content
+        public void ShowMainContent()
+        {
+            // Remove create quiz control if exists
+            if (_createQuizControl != null)
+            {
+                contentPanel.Controls.Remove(_createQuizControl);
+                _createQuizControl.Dispose();
+                _createQuizControl = null;
+            }
+
+            // Remove do quiz control if exists
+            if (_doQuizControl != null)
+            {
+                contentPanel.Controls.Remove(_doQuizControl);
+                _doQuizControl.Dispose();
+                _doQuizControl = null;
+            }
+
+            
+
+            // If you need to reload static content designed in Designer,
+            // you can call a method to restore / re-add controls.
+            // LoadDashboard(); // optional
+        }
+
+        private void createBtn_Click(object sender, EventArgs e)
+        {
+            ShowCreateQuizControl();
+        }
+
+        private void startBtn_Click(object sender, EventArgs e)
+        {
+            ShowDoQuizControl();
+        }
+
+        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

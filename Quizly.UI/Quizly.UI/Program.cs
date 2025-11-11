@@ -40,7 +40,7 @@ internal static class Program
         {
             var db = scope.ServiceProvider.GetRequiredService<QuizlyDbContext>();
             db.Database.Migrate();  // tự apply migration
-            DbSeeder.Seed(db);      // gọi seed
+                // gọi seed
         }
 
         var login = host.Services.GetRequiredService<LoginForm>();

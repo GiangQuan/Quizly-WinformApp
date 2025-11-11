@@ -174,3 +174,7 @@ C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\De
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\System.Management.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\bin\Debug\net8.0-windows\appsettings.json
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.UserUC.createQuizzControl.resources
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.QuizzForm.resources
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.UserUC.doQuizzControl.resources
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.UserUC.historyControl.resources
