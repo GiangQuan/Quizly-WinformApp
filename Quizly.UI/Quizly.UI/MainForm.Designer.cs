@@ -619,6 +619,7 @@ namespace Quizly.UI
             anaBtn.Size = new Size(82, 33);
             anaBtn.TabIndex = 9;
             anaBtn.Text = "Check";
+            anaBtn.Click += anaBtn_Click;
             // 
             // guna2GradientButton10
             // 

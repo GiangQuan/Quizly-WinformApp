@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Quizly.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d62ca512f2d476c3c6c49e0b61d34e2a0320176")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+410e1f1b647e3275659580a96b0f42ef09632509")]
 [assembly: System.Reflection.AssemblyProductAttribute("Quizly.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Quizly.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

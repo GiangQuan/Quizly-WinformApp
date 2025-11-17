@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CDDCB182-11EB-461E-BC14-2C22E7D1E369}|Quizly.UI\\Quizly.UI.csproj|c:\\users\\giangquan\\documents\\github\\quizly-winformapp\\quizly.ui\\quizly.ui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CDDCB182-11EB-461E-BC14-2C22E7D1E369}|Quizly.UI\\Quizly.UI.csproj|solutionrelative:quizly.ui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CDDCB182-11EB-461E-BC14-2C22E7D1E369}|Quizly.UI\\Quizly.UI.csproj|c:\\users\\giangquan\\documents\\github\\quizly-winformapp\\quizly.ui\\quizly.ui\\useruc\\createquizzcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CDDCB182-11EB-461E-BC14-2C22E7D1E369}|Quizly.UI\\Quizly.UI.csproj|solutionrelative:quizly.ui\\useruc\\createquizzcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDDCB182-11EB-461E-BC14-2C22E7D1E369}|Quizly.UI\\Quizly.UI.csproj|c:\\users\\giangquan\\documents\\github\\quizly-winformapp\\quizly.ui\\quizly.ui\\useruc\\createquizzcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{CDDCB182-11EB-461E-BC14-2C22E7D1E369}|Quizly.UI\\Quizly.UI.csproj|C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\quizly.ui\\useruc\\createquizzcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{CDDCB182-11EB-461E-BC14-2C22E7D1E369}|Quizly.UI\\Quizly.UI.csproj|solutionrelative:quizly.ui\\useruc\\createquizzcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CDDCB182-11EB-461E-BC14-2C22E7D1E369}|Quizly.UI\\Quizly.UI.csproj|C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\quizly.ui\\useruc\\historycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{CDDCB182-11EB-461E-BC14-2C22E7D1E369}|Quizly.UI\\Quizly.UI.csproj|solutionrelative:quizly.ui\\useruc\\historycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CDDCB182-11EB-461E-BC14-2C22E7D1E369}|Quizly.UI\\Quizly.UI.csproj|C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\quizly.ui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{CDDCB182-11EB-461E-BC14-2C22E7D1E369}|Quizly.UI\\Quizly.UI.csproj|solutionrelative:quizly.ui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CDDCB182-11EB-461E-BC14-2C22E7D1E369}|Quizly.UI\\Quizly.UI.csproj|c:\\users\\giangquan\\documents\\github\\quizly-winformapp\\quizly.ui\\quizly.ui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -64,10 +64,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.Data\\Migrations\\20251111151204_ConfigureQuizQuestionRelationships.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Quizly.Data\\Migrations\\20251111151204_ConfigureQuizQuestionRelationships.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A0CFB9D-0937-4296-BE4E-76C3B79F979C}|Quizly.Data\\Quizly.Data.csproj|c:\\users\\giangquan\\documents\\github\\quizly-winformapp\\quizly.ui\\quizly.data\\models\\quizlydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -116,6 +112,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{77533FD2-9DBA-44D9-9E47-23E5532EB8C7}|Quizly.Core\\Quizly.Core.csproj|c:\\users\\giangquan\\documents\\github\\quizly-winformapp\\quizly.ui\\quizly.core\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77533FD2-9DBA-44D9-9E47-23E5532EB8C7}|Quizly.Core\\Quizly.Core.csproj|solutionrelative:quizly.core\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A0CFB9D-0937-4296-BE4E-76C3B79F979C}|Quizly.Data\\Quizly.Data.csproj|c:\\users\\giangquan\\documents\\github\\quizly-winformapp\\quizly.ui\\quizly.data\\migrations\\20251111151204_configurequizquestionrelationships.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A0CFB9D-0937-4296-BE4E-76C3B79F979C}|Quizly.Data\\Quizly.Data.csproj|solutionrelative:quizly.data\\migrations\\20251111151204_configurequizquestionrelationships.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -125,7 +125,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 332,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -134,6 +134,18 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\MainForm.cs",
+              "RelativeDocumentMoniker": "Quizly.UI\\MainForm.cs",
+              "ToolTip": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\MainForm.cs [Design]*",
+              "RelativeToolTip": "Quizly.UI\\MainForm.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T06:09:08.972Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -150,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "createQuizzControl.cs [Design]",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\UserUC\\createQuizzControl.cs",
               "RelativeDocumentMoniker": "Quizly.UI\\UserUC\\createQuizzControl.cs",
@@ -170,8 +182,7 @@
               "RelativeToolTip": "Quizly.Data\\DesignTimeDbContextFactory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T14:28:00.956Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T14:28:00.956Z"
             },
             {
               "$type": "Document",
@@ -182,20 +193,18 @@
               "ToolTip": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\QuizzForm.cs [Design]",
               "RelativeToolTip": "Quizly.UI\\QuizzForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T13:44:21.935Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-11T13:44:21.935Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "historyControl.cs [Design]",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\UserUC\\historyControl.cs",
               "RelativeDocumentMoniker": "Quizly.UI\\UserUC\\historyControl.cs",
               "ToolTip": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\UserUC\\historyControl.cs [Design]",
               "RelativeToolTip": "Quizly.UI\\UserUC\\historyControl.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T12:16:06.023Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-11T12:16:06.023Z"
             },
             {
               "$type": "Document",
@@ -220,8 +229,7 @@
               "RelativeToolTip": "Quizly.UI\\QuizzForm.cs",
               "ViewState": "AgIAAHoBAAAAAAAAAAAuwIwBAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T11:44:49.944Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T11:44:49.944Z"
             },
             {
               "$type": "Document",
@@ -233,8 +241,7 @@
               "RelativeToolTip": "Quizly.UI\\Program.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAgwDAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T11:44:37.668Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T11:44:37.668Z"
             },
             {
               "$type": "Document",
@@ -246,12 +253,11 @@
               "RelativeToolTip": "Quizly.UI\\QuizzForm.Designer.cs",
               "ViewState": "AgIAACIBAAAAAAAAAADgvzEBAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T11:44:36.209Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T11:44:36.209Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "doQuizzControl.Designer.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\UserUC\\doQuizzControl.Designer.cs",
               "RelativeDocumentMoniker": "Quizly.UI\\UserUC\\doQuizzControl.Designer.cs",
@@ -259,20 +265,18 @@
               "RelativeToolTip": "Quizly.UI\\UserUC\\doQuizzControl.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T11:40:04.949Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T11:40:04.949Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "doQuizzControl.cs [Design]",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\UserUC\\doQuizzControl.cs",
               "RelativeDocumentMoniker": "Quizly.UI\\UserUC\\doQuizzControl.cs",
               "ToolTip": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\UserUC\\doQuizzControl.cs [Design]",
               "RelativeToolTip": "Quizly.UI\\UserUC\\doQuizzControl.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T11:39:20.38Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-11T11:39:20.38Z"
             },
             {
               "$type": "Document",
@@ -284,8 +288,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ViewState": "AgIAAMAUAAAAAAAAAAAhwMoUAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-11-11T10:26:53.415Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T10:26:53.415Z"
             },
             {
               "$type": "Document",
@@ -297,17 +300,16 @@
               "RelativeToolTip": "Quizly.UI\\UserUC\\createQuizzControl.Designer.cs",
               "ViewState": "AgIAANYBAAAAAAAAAAAwwOsBAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T09:46:27.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T09:46:27.405Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "MainForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\MainForm.Designer.cs",
               "RelativeDocumentMoniker": "Quizly.UI\\MainForm.Designer.cs",
-              "ToolTip": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\MainForm.Designer.cs",
-              "RelativeToolTip": "Quizly.UI\\MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\MainForm.Designer.cs*",
+              "RelativeToolTip": "Quizly.UI\\MainForm.Designer.cs*",
               "ViewState": "AgIAABcAAAAAAAAAAAAqwBcAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T09:38:32.528Z",
@@ -315,28 +317,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "createQuizzControl.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\UserUC\\createQuizzControl.cs",
               "RelativeDocumentMoniker": "Quizly.UI\\UserUC\\createQuizzControl.cs",
               "ToolTip": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\UserUC\\createQuizzControl.cs",
               "RelativeToolTip": "Quizly.UI\\UserUC\\createQuizzControl.cs",
-              "ViewState": "AgIAADcCAAAAAAAAAAAuwE0CAAARAAAAAAAAAA==",
+              "ViewState": "AgIAADECAAAAAAAAAAAuwE0CAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T08:58:47.152Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "LoginForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\LoginForm.cs",
               "RelativeDocumentMoniker": "Quizly.UI\\LoginForm.cs",
               "ToolTip": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\LoginForm.cs [Design]",
               "RelativeToolTip": "Quizly.UI\\LoginForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T08:57:59.192Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-11T08:57:59.192Z"
             },
             {
               "$type": "Document",
@@ -344,8 +345,8 @@
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\MainForm.cs",
               "RelativeDocumentMoniker": "Quizly.UI\\MainForm.cs",
-              "ToolTip": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\MainForm.cs",
-              "RelativeToolTip": "Quizly.UI\\MainForm.cs",
+              "ToolTip": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\MainForm.cs*",
+              "RelativeToolTip": "Quizly.UI\\MainForm.cs*",
               "ViewState": "AgIAAIUAAAAAAAAAAAAtwJkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T08:57:34.007Z",
@@ -353,31 +354,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\MainForm.cs",
-              "RelativeDocumentMoniker": "Quizly.UI\\MainForm.cs",
-              "ToolTip": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\MainForm.cs [Design]",
-              "RelativeToolTip": "Quizly.UI\\MainForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T08:57:06.035Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 26,
               "Title": "Quizly.Data",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.Data\\Quizly.Data.csproj",
               "RelativeDocumentMoniker": "Quizly.Data\\Quizly.Data.csproj",
               "ToolTip": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.Data\\Quizly.Data.csproj",
               "RelativeToolTip": "Quizly.Data\\Quizly.Data.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-10T12:49:32.237Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T12:49:32.237Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "LoginForm.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\LoginForm.cs",
               "RelativeDocumentMoniker": "Quizly.UI\\LoginForm.cs",
@@ -385,12 +373,11 @@
               "RelativeToolTip": "Quizly.UI\\LoginForm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T12:48:01.375Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T12:48:01.375Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "QuizlyDbContext.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.Data\\Models\\QuizlyDbContext.cs",
               "RelativeDocumentMoniker": "Quizly.Data\\Models\\QuizlyDbContext.cs",
@@ -398,12 +385,11 @@
               "RelativeToolTip": "Quizly.Data\\Models\\QuizlyDbContext.cs",
               "ViewState": "AgIAAFUAAAAAAAAAAAAcwGEAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T12:39:51.438Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T12:39:51.438Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "Result.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.Data\\Models\\Result.cs",
               "RelativeDocumentMoniker": "Quizly.Data\\Models\\Result.cs",
@@ -411,12 +397,11 @@
               "RelativeToolTip": "Quizly.Data\\Models\\Result.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T12:39:12.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T12:39:12.534Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "Question.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.Data\\Models\\Question.cs",
               "RelativeDocumentMoniker": "Quizly.Data\\Models\\Question.cs",
@@ -424,12 +409,11 @@
               "RelativeToolTip": "Quizly.Data\\Models\\Question.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAA6wAYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T12:38:43.607Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T12:38:43.607Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 18,
               "Title": "Quiz.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.Data\\Models\\Quiz.cs",
               "RelativeDocumentMoniker": "Quizly.Data\\Models\\Quiz.cs",
@@ -437,12 +421,11 @@
               "RelativeToolTip": "Quizly.Data\\Models\\Quiz.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T12:38:30.239Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T12:38:30.239Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 23,
               "Title": "Quizly.UI.csproj",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.UI\\Quizly.UI.csproj",
               "RelativeDocumentMoniker": "Quizly.UI\\Quizly.UI.csproj",
@@ -450,12 +433,11 @@
               "RelativeToolTip": "Quizly.UI\\Quizly.UI.csproj",
               "ViewState": "AgIAAAwAAAAAAAAAAAAewCYAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-10T12:28:23.64Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T12:28:23.64Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 27,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.Core\\Class1.cs",
               "RelativeDocumentMoniker": "Quizly.Core\\Class1.cs",
@@ -463,12 +445,11 @@
               "RelativeToolTip": "Quizly.Core\\Class1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T12:27:32.129Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T12:27:32.129Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 24,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.Data\\Models\\User.cs",
               "RelativeDocumentMoniker": "Quizly.Data\\Models\\User.cs",
@@ -476,8 +457,7 @@
               "RelativeToolTip": "Quizly.Data\\Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T12:26:56.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T12:26:56.385Z"
             }
           ]
         },
@@ -493,11 +473,15 @@
         },
         {
           "DockedHeight": 62,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 28,
               "Title": "20251111151204_ConfigureQuizQuestionRelationships.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.Data\\Migrations\\20251111151204_ConfigureQuizQuestionRelationships.cs",
               "RelativeDocumentMoniker": "Quizly.Data\\Migrations\\20251111151204_ConfigureQuizQuestionRelationships.cs",
@@ -510,7 +494,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "20251111145539_ConfigureQuizQuestionRelationships.cs",
               "DocumentMoniker": "C:\\Users\\giangQuan\\Documents\\GitHub\\Quizly-WinformApp\\Quizly.UI\\Quizly.Data\\Migrations\\20251111145539_ConfigureQuizQuestionRelationships.cs",
               "RelativeDocumentMoniker": "Quizly.Data\\Migrations\\20251111145539_ConfigureQuizQuestionRelationships.cs",
@@ -518,12 +502,7 @@
               "RelativeToolTip": "Quizly.Data\\Migrations\\20251111145539_ConfigureQuizQuestionRelationships.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T14:55:39.576Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+              "WhenOpened": "2025-11-11T14:55:39.576Z"
             }
           ]
         },

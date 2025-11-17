@@ -145,6 +145,11 @@ namespace Quizly.UI.UserUC
 
             // Wire up the Add Question button
             guna2Button1.Click += AddQuestionBtn_Click;
+
+            // Force an explicit, common UI font so imported text renders consistently:
+            questionDgv.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+            questionDgv.DefaultCellStyle.Font = questionDgv.Font;
+            questionDgv.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
         }
 
         private void createQuizzControl_Load(object sender, EventArgs e)
@@ -494,15 +499,26 @@ namespace Quizly.UI.UserUC
                             }
 
                             // Read data starting from row 2 (skip header)
+                            // helper local functions (place near top of method)
+                            string ReadCell(OfficeOpenXml.ExcelRange cell) =>
+                                (cell?.Text?.Trim() ?? cell?.GetValue<string>()?.Trim() ?? string.Empty);
+
+                            string CleanText(string s) =>
+                                string.IsNullOrEmpty(s) ? string.Empty :
+                                s.Normalize(System.Text.NormalizationForm.FormC)
+                                 .Replace("\u200B", "")   // zero-width space
+                                 .Replace("\uFEFF", "")   // BOM / zero-width no-break space
+                                 .Trim();
+
+                            // usage inside the row loop:
                             for (int row = 2; row <= rowCount; row++)
                             {
-                                // Read question data
-                                var questionText = worksheet.Cells[row, 2].Value?.ToString()?.Trim();
-                                var answerA = worksheet.Cells[row, 3].Value?.ToString()?.Trim();
-                                var answerB = worksheet.Cells[row, 4].Value?.ToString()?.Trim();
-                                var answerC = worksheet.Cells[row, 5].Value?.ToString()?.Trim();
-                                var answerD = worksheet.Cells[row, 6].Value?.ToString()?.Trim();
-                                var correctAnswer = worksheet.Cells[row, 7].Value?.ToString()?.Trim()?.ToUpper();
+                                var questionText = CleanText(ReadCell(worksheet.Cells[row, 2]));
+                                var answerA = CleanText(ReadCell(worksheet.Cells[row, 3]));
+                                var answerB = CleanText(ReadCell(worksheet.Cells[row, 4]));
+                                var answerC = CleanText(ReadCell(worksheet.Cells[row, 5]));
+                                var answerD = CleanText(ReadCell(worksheet.Cells[row, 6]));
+                                var correctAnswer = CleanText(ReadCell(worksheet.Cells[row, 7]))?.ToUpper();
 
                                 // Validate required fields
                                 if (string.IsNullOrWhiteSpace(questionText) ||

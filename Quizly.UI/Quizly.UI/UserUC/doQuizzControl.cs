@@ -23,6 +23,9 @@ namespace Quizly.UI.UserUC
         private readonly User _currentUser;
         private FlowLayoutPanel quizListPanel;
 
+        // cached quizzes loaded from DB (used for client-side search)
+        private List<Quiz> _loadedQuizzes = new List<Quiz>();
+
         // Constructor with dependency injection
         public doQuizzControl(QuizlyDbContext db, User currentUser)
         {
@@ -87,10 +90,8 @@ namespace Quizly.UI.UserUC
         {
             try
             {
-                // Clear existing panels
+                // Clear existing panels and show loading indicator
                 quizListPanel.Controls.Clear();
-
-                // Show loading indicator
                 var loadingLabel = new Guna2HtmlLabel
                 {
                     Text = "Loading quizzes...",
@@ -101,38 +102,33 @@ namespace Quizly.UI.UserUC
                 };
                 quizListPanel.Controls.Add(loadingLabel);
 
-                // Fetch all published quizzes from database
-                var quizzes = await _db.Quizzes
-                    .Include(q => q.CreatedBy)
-                    .Include(q => q.Questions)
-                    .Where(q => q.IsPublished == true)
+                // Always include navigation properties we need
+                IQueryable<Quiz> query = _db.Quizzes.Include(q => q.CreatedBy).Include(q => q.Questions);
+
+                if (_currentUser != null)
+                {
+                    // Show only quizzes that belong to the signed-in user
+                    query = query.Where(q => q.CreatedById == _currentUser.Id);
+                }
+                else
+                {
+                    // Not logged in — show only published quizzes
+                    query = query.Where(q => q.IsPublished);
+                }
+
+                var quizzes = await query
                     .OrderByDescending(q => q.Id)
                     .ToListAsync();
 
-                // Remove loading label
-                quizListPanel.Controls.Remove(loadingLabel);
+                // cache quizzes for client-side search
+                _loadedQuizzes = quizzes ?? new List<Quiz>();
 
-                // Check if there are any quizzes
-                if (quizzes == null || quizzes.Count == 0)
-                {
-                    var noQuizLabel = new Guna2HtmlLabel
-                    {
-                        Text = "No quizzes available at the moment.",
-                        Font = new Font("Segoe UI", 14F, FontStyle.Italic),
-                        ForeColor = Color.Gray,
-                        AutoSize = true,
-                        Margin = new Padding(10)
-                    };
-                    quizListPanel.Controls.Add(noQuizLabel);
-                    return;
-                }
+                // Render quizzes
+                RenderQuizzes(_loadedQuizzes);
 
-                // Create a panel for each quiz
-                foreach (var quiz in quizzes)
-                {
-                    var panel = CreateQuizPanel(quiz);
-                    quizListPanel.Controls.Add(panel);
-                }
+                // Remove loading label if still present
+                if (quizListPanel.Controls.Contains(loadingLabel))
+                    quizListPanel.Controls.Remove(loadingLabel);
             }
             catch (Exception ex)
             {
@@ -141,6 +137,33 @@ namespace Quizly.UI.UserUC
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+            }
+        }
+
+        // Render the provided quizzes into the UI (reusable for search results)
+        private void RenderQuizzes(IEnumerable<Quiz> quizzes)
+        {
+            quizListPanel.Controls.Clear();
+
+            var list = quizzes?.ToList() ?? new List<Quiz>();
+            if (list.Count == 0)
+            {
+                var noQuizLabel = new Guna2HtmlLabel
+                {
+                    Text = "No quizzes available at the moment.",
+                    Font = new Font("Segoe UI", 14F, FontStyle.Italic),
+                    ForeColor = Color.Gray,
+                    AutoSize = true,
+                    Margin = new Padding(10)
+                };
+                quizListPanel.Controls.Add(noQuizLabel);
+                return;
+            }
+
+            foreach (var quiz in list)
+            {
+                var panel = CreateQuizPanel(quiz);
+                quizListPanel.Controls.Add(panel);
             }
         }
 
@@ -231,7 +254,7 @@ namespace Quizly.UI.UserUC
                 FillColor2 = Color.FromArgb(103, 93, 238),
                 BorderRadius = 25,
                 Size = new Size(100, 70),
-                Location = new Point(panel.Width - 120, 30),
+                Location = new Point(panel.Width - 240, 30),
                 Anchor = AnchorStyles.Top | AnchorStyles.Right,
                 Tag = quiz,
                 Parent = panel
@@ -239,7 +262,51 @@ namespace Quizly.UI.UserUC
 
             startBtn.Click += StartQuiz_Click;
 
+            // Edit button (visible only to owner / creator / admin)
+            var editBtn = new Guna2GradientButton
+            {
+                Text = "Edit",
+                Font = new Font("Segoe UI", 10F, FontStyle.Bold),
+                ForeColor = Color.White,
+                FillColor = Color.FromArgb(95, 95, 95),
+                FillColor2 = Color.FromArgb(70, 70, 70),
+                BorderRadius = 12,
+                Size = new Size(70, 34),
+                Location = new Point(panel.Width - 120, 38),
+                Anchor = AnchorStyles.Top | AnchorStyles.Right,
+                Tag = quiz,
+                Parent = panel
+            };
+
+            // Permission: only show edit if current user is owner or has Creator/Admin role
+            if (_currentUser != null && (_currentUser.Role == Role.Admin || _currentUser.Role == Role.Creator || quiz.CreatedById == _currentUser.Id))
+            {
+                editBtn.Visible = true;
+                editBtn.Click += (s, e) => OpenQuickEdit(quiz);
+            }
+            else
+            {
+                editBtn.Visible = false;
+            }
+
+            panel.Controls.Add(startBtn);
+            panel.Controls.Add(editBtn);
+
             return panel;
+        }
+
+        private async void OpenQuickEdit(Quiz quiz)
+        {
+            // Quick edit dialog edits and saves directly to DB
+            using (var dlg = new QuickEditQuizForm(_db, quiz, _currentUser))
+            {
+                var res = dlg.ShowDialog(this);
+                if (res == DialogResult.OK)
+                {
+                    // reload quizzes to reflect changes
+                    await LoadQuizzesAsync();
+                }
+            }
         }
 
         private async void StartQuiz_Click(object sender, EventArgs e)
@@ -274,12 +341,12 @@ namespace Quizly.UI.UserUC
                         // Hide MainForm
                         mainForm.Hide();
 
-						// Show QuizzForm as a modal dialog to keep it open until user finishes
-						quizzForm.ShowDialog(mainForm);
+                        // Show QuizzForm as a modal dialog to keep it open until user finishes
+                        quizzForm.ShowDialog(mainForm);
 
-						// After dialog closes, show MainForm again and reload quizzes
-						mainForm.Show();
-						await LoadQuizzesAsync();
+                        // After dialog closes, show MainForm again and reload quizzes
+                        mainForm.Show();
+                        await LoadQuizzesAsync();
                     }
                 }
                 catch (Exception ex)
@@ -304,6 +371,42 @@ namespace Quizly.UI.UserUC
             }
         }
 
-      
+        // searchTxt is used as a fuzzy-ish search box (client-side filter of the last loaded list)
+        private async void searchTxt_TextChanged(object sender, EventArgs e)
+        {
+            // if quizzes not yet loaded, load them first
+            if (_loadedQuizzes == null || _loadedQuizzes.Count == 0)
+            {
+                await LoadQuizzesAsync();
+            }
+
+            var query = (searchTxt?.Text ?? "").Trim();
+            if (string.IsNullOrEmpty(query))
+            {
+                RenderQuizzes(_loadedQuizzes);
+                return;
+            }
+
+            // split into tokens and require each token to be present in title/description/tags (case-insensitive)
+            var tokens = query.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                              .Select(t => t.Trim())
+                              .Where(t => t.Length > 0)
+                              .ToArray();
+
+            var filtered = _loadedQuizzes.Where(q =>
+            {
+                var hay = (q.Title ?? "") + " " + (q.Description ?? "") + " " + (q.Tags ?? "");
+                return tokens.All(tok => hay.IndexOf(tok, StringComparison.OrdinalIgnoreCase) >= 0)
+                       // also allow partial-match alternative (any token starts with)
+                       || tokens.Any(tok => (q.Title ?? "").IndexOf(tok, StringComparison.OrdinalIgnoreCase) >= 0);
+            }).ToList();
+
+            RenderQuizzes(filtered);
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

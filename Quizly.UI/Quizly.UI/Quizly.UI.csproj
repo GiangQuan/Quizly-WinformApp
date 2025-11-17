@@ -25,6 +25,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.10" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.10" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.10" />
+    <PackageReference Include="ScottPlot.WinForms" Version="5.1.57" />
   </ItemGroup>
 
   <ItemGroup>

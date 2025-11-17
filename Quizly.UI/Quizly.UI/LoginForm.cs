@@ -57,7 +57,14 @@ namespace Quizly.UI
                 main.ShowDialog();
             }
 
-            this.Close();
+            // When MainForm closes (for example user clicked Logout which calls MainForm.Close()),
+            // return to the login form so the user can log in again.
+            this.Show();
+            // Clear sensitive fields
+            txtPassword.Clear();
+            errorLabel.Text = "";
+            // optionally clear email as well:
+            // txtEmail.Clear();
         }
 
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
