@@ -70,6 +70,7 @@
             quizzPanel.ShadowDecoration.Enabled = true;
             quizzPanel.Size = new Size(858, 104);
             quizzPanel.TabIndex = 14;
+            quizzPanel.Paint += quizzPanel_Paint;
             // 
             // editBtn
             // 

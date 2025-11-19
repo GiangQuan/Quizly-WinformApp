@@ -266,13 +266,13 @@ namespace Quizly.UI.UserUC
             var editBtn = new Guna2GradientButton
             {
                 Text = "Edit",
-                Font = new Font("Segoe UI", 10F, FontStyle.Bold),
+                Font = new Font("Segoe UI", 16F, FontStyle.Bold),
                 ForeColor = Color.White,
                 FillColor = Color.FromArgb(95, 95, 95),
                 FillColor2 = Color.FromArgb(70, 70, 70),
-                BorderRadius = 12,
-                Size = new Size(70, 34),
-                Location = new Point(panel.Width - 120, 38),
+                BorderRadius = 25,
+                Size = new Size(100, 74),
+                Location = new Point(panel.Width - 120, 30),
                 Anchor = AnchorStyles.Top | AnchorStyles.Right,
                 Tag = quiz,
                 Parent = panel
@@ -405,6 +405,11 @@ namespace Quizly.UI.UserUC
         }
 
         private void editBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void quizzPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

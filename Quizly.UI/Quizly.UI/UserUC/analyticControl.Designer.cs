@@ -94,6 +94,7 @@ namespace Quizly.UI.UserUC
             tableLayoutPanelMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanelMain.Size = new Size(754, 473);
             tableLayoutPanelMain.TabIndex = 0;
+            tableLayoutPanelMain.BackColor = System.Drawing.Color.FromArgb(248, 248, 252);
             // 
             // panelFilters
             // 
@@ -106,43 +107,53 @@ namespace Quizly.UI.UserUC
             panelFilters.Dock = DockStyle.Fill;
             panelFilters.Location = new Point(3, 3);
             panelFilters.Name = "panelFilters";
-            panelFilters.Padding = new Padding(8);
-            panelFilters.Size = new Size(748, 48);
+            panelFilters.Padding = new Padding(12);
+            panelFilters.Size = new Size(748, 60);
             panelFilters.TabIndex = 0;
+            panelFilters.BackColor = System.Drawing.Color.FromArgb(250, 250, 252);
             // 
             // cbQuizFilter
             // 
             cbQuizFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             cbQuizFilter.Items.AddRange(new object[] { "All quizzes" });
-            cbQuizFilter.Location = new Point(8, 10);
+            cbQuizFilter.Location = new Point(12, 16);
             cbQuizFilter.Name = "cbQuizFilter";
-            cbQuizFilter.Size = new Size(250, 23);
+            cbQuizFilter.Size = new Size(200, 23);
             cbQuizFilter.TabIndex = 0;
+            cbQuizFilter.Font = new System.Drawing.Font("Segoe UI", 9F);
             // 
             // dtpFrom
             // 
             dtpFrom.Format = DateTimePickerFormat.Short;
-            dtpFrom.Location = new Point(310, 8);
+            dtpFrom.Location = new Point(225, 16);
             dtpFrom.Name = "dtpFrom";
-            dtpFrom.Size = new Size(110, 23);
+            dtpFrom.Size = new Size(120, 23);
             dtpFrom.TabIndex = 2;
+            dtpFrom.Font = new System.Drawing.Font("Segoe UI", 9F);
             // 
             // dtpTo
             // 
             dtpTo.Format = DateTimePickerFormat.Short;
-            dtpTo.Location = new Point(460, 8);
+            dtpTo.Location = new Point(355, 16);
             dtpTo.Name = "dtpTo";
-            dtpTo.Size = new Size(110, 23);
+            dtpTo.Size = new Size(120, 23);
             dtpTo.TabIndex = 4;
+            dtpTo.Font = new System.Drawing.Font("Segoe UI", 9F);
             // 
             // btnRefresh
             // 
             btnRefresh.AutoSize = true;
-            btnRefresh.Location = new Point(580, 8);
+            btnRefresh.Location = new Point(485, 15);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(75, 25);
+            btnRefresh.Size = new Size(85, 28);
             btnRefresh.TabIndex = 5;
-            btnRefresh.Text = "Refresh";
+            btnRefresh.Text = "🔄 Refresh";
+            btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            btnRefresh.BackColor = System.Drawing.Color.FromArgb(103, 93, 238);
+            btnRefresh.ForeColor = System.Drawing.Color.White;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.Cursor = Cursors.Hand;
             // 
             // btnExport
             // 
@@ -152,18 +163,25 @@ namespace Quizly.UI.UserUC
             btnExport.Name = "btnExport";
             btnExport.Size = new Size(75, 25);
             btnExport.TabIndex = 6;
-            btnExport.Text = "Export";
+            btnExport.Text = "📊 Export";
+            btnExport.Font = new System.Drawing.Font("Segoe UI", 9F);
+            btnExport.BackColor = System.Drawing.Color.FromArgb(76, 62, 147);
+            btnExport.ForeColor = System.Drawing.Color.White;
+            btnExport.FlatStyle = FlatStyle.Flat;
+            btnExport.FlatAppearance.BorderSize = 0;
+            btnExport.Cursor = Cursors.Hand;
             // 
             // flowPanelKpis
             // 
             flowPanelKpis.AutoSize = true;
             flowPanelKpis.Dock = DockStyle.Fill;
-            flowPanelKpis.Location = new Point(3, 57);
+            flowPanelKpis.Location = new Point(3, 66);
             flowPanelKpis.Name = "flowPanelKpis";
-            flowPanelKpis.Padding = new Padding(8);
+            flowPanelKpis.Padding = new Padding(12);
             flowPanelKpis.Size = new Size(748, 16);
             flowPanelKpis.TabIndex = 1;
             flowPanelKpis.WrapContents = false;
+            flowPanelKpis.BackColor = System.Drawing.Color.FromArgb(248, 248, 252);
             // 
             // Add KPI panels (ensure label fields are initialized so LoadDataAsync won't NRE)
             var kpiTotal = CreateKpiPanel(out lblTotalQuizzesTitle, out lblTotalQuizzesValue, "Total quizzes", "0");
@@ -177,17 +195,21 @@ namespace Quizly.UI.UserUC
             splitContainerMain.Dock = DockStyle.Fill;
             splitContainerMain.Location = new Point(3, 79);
             splitContainerMain.Name = "splitContainerMain";
+            splitContainerMain.Orientation = Orientation.Horizontal;
             // 
             // splitContainerMain.Panel1
             // 
             splitContainerMain.Panel1.Controls.Add(chartTrend);
+            splitContainerMain.Panel1.Padding = new Padding(12, 8, 12, 8);
             // 
             // splitContainerMain.Panel2
             // 
             splitContainerMain.Panel2.Controls.Add(dgvDetails);
+            splitContainerMain.Panel2.Padding = new Padding(12, 8, 12, 12);
             splitContainerMain.Size = new Size(748, 391);
-            splitContainerMain.SplitterDistance = 603;
+            splitContainerMain.SplitterDistance = 200;
             splitContainerMain.TabIndex = 2;
+            splitContainerMain.BackColor = System.Drawing.Color.FromArgb(248, 248, 252);
             // 
             // chartTrend
             // 
@@ -197,6 +219,7 @@ namespace Quizly.UI.UserUC
             chartTrend.Name = "chartTrend";
             chartTrend.Size = new Size(603, 391);
             chartTrend.TabIndex = 0;
+            chartTrend.BackColor = System.Drawing.Color.White;
             // 
             // dgvDetails
             // 
@@ -210,26 +233,51 @@ namespace Quizly.UI.UserUC
             dgvDetails.RowHeadersVisible = false;
             dgvDetails.Size = new Size(141, 391);
             dgvDetails.TabIndex = 0;
+            dgvDetails.BackgroundColor = System.Drawing.Color.White;
+            dgvDetails.BorderStyle = BorderStyle.None;
+            dgvDetails.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvDetails.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvDetails.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(76, 62, 147);
+            dgvDetails.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            dgvDetails.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dgvDetails.ColumnHeadersDefaultCellStyle.Padding = new Padding(8);
+            dgvDetails.ColumnHeadersHeight = 40;
+            dgvDetails.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(103, 93, 238);
+            dgvDetails.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            dgvDetails.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dgvDetails.DefaultCellStyle.Padding = new Padding(6);
+            dgvDetails.GridColor = System.Drawing.Color.FromArgb(240, 240, 245);
+            dgvDetails.RowTemplate.Height = 35;
+            dgvDetails.EnableHeadersVisualStyles = false;
+            dgvDetails.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(250, 250, 252);
             // 
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.HeaderText = "Date & Time";
             dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.FillWeight = 25;
             // 
             // dataGridViewTextBoxColumn2
             // 
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.HeaderText = "User";
             dataGridViewTextBoxColumn2.ReadOnly = true;
+            dataGridViewTextBoxColumn2.FillWeight = 25;
             // 
             // dataGridViewTextBoxColumn3
             // 
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.HeaderText = "Quiz";
             dataGridViewTextBoxColumn3.ReadOnly = true;
+            dataGridViewTextBoxColumn3.FillWeight = 35;
             // 
             // dataGridViewTextBoxColumn4
             // 
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.HeaderText = "Score";
             dataGridViewTextBoxColumn4.ReadOnly = true;
+            dataGridViewTextBoxColumn4.FillWeight = 15;
             // 
             // backBtn
             // 
@@ -259,6 +307,7 @@ namespace Quizly.UI.UserUC
             Controls.Add(tableLayoutPanelMain);
             Name = "analyticControl";
             Size = new Size(754, 473);
+            BackColor = System.Drawing.Color.FromArgb(248, 248, 252);
             tableLayoutPanelMain.ResumeLayout(false);
             tableLayoutPanelMain.PerformLayout();
             panelFilters.ResumeLayout(false);
@@ -274,27 +323,58 @@ namespace Quizly.UI.UserUC
         private Panel CreateKpiPanel(out Label titleLabel, out Label valueLabel, string title, string value)
         {
             var panel = new Panel();
-            panel.Size = new Size(170, 64);
-            panel.Padding = new Padding(8);
-            panel.Margin = new Padding(6);
-            panel.BackColor = System.Drawing.Color.FromArgb(245, 245, 250);
+            panel.Size = new Size(180, 90);
+            panel.Padding = new Padding(12);
+            panel.Margin = new Padding(8);
+            panel.BackColor = System.Drawing.Color.White;
+            
+            // Add subtle shadow effect with border
+            panel.BorderStyle = BorderStyle.None;
+            panel.Paint += (s, e) =>
+            {
+                var rect = panel.ClientRectangle;
+                rect.Width -= 1;
+                rect.Height -= 1;
+                using (var pen = new Pen(System.Drawing.Color.FromArgb(230, 230, 235), 1))
+                {
+                    e.Graphics.DrawRectangle(pen, rect);
+                }
+            };
 
             titleLabel = new Label();
             titleLabel.Text = title;
-            titleLabel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular);
-            titleLabel.ForeColor = System.Drawing.Color.FromArgb(90, 90, 110);
+            titleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+            titleLabel.ForeColor = System.Drawing.Color.FromArgb(120, 120, 140);
             titleLabel.AutoSize = true;
-            titleLabel.Location = new Point(8, 6);
+            titleLabel.Location = new Point(12, 12);
 
             valueLabel = new Label();
             valueLabel.Text = value;
-            valueLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            valueLabel.ForeColor = System.Drawing.Color.FromArgb(79, 65, 159);
+            valueLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            valueLabel.ForeColor = System.Drawing.Color.FromArgb(76, 62, 147);
             valueLabel.AutoSize = true;
-            valueLabel.Location = new Point(8, 26);
+            valueLabel.Location = new Point(12, 38);
+
+            // Add icon label
+            var iconLabel = new Label();
+            iconLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            iconLabel.ForeColor = System.Drawing.Color.FromArgb(103, 93, 238);
+            iconLabel.AutoSize = true;
+            iconLabel.Location = new Point(panel.Width - 40, 12);
+            
+            // Set icon based on title
+            if (title.Contains("quiz", StringComparison.OrdinalIgnoreCase))
+                iconLabel.Text = "📝";
+            else if (title.Contains("attempt", StringComparison.OrdinalIgnoreCase))
+                iconLabel.Text = "🎯";
+            else if (title.Contains("score", StringComparison.OrdinalIgnoreCase))
+                iconLabel.Text = "⭐";
+            else if (title.Contains("pass", StringComparison.OrdinalIgnoreCase))
+                iconLabel.Text = "✅";
 
             panel.Controls.Add(titleLabel);
             panel.Controls.Add(valueLabel);
+            panel.Controls.Add(iconLabel);
 
             return panel;
         }

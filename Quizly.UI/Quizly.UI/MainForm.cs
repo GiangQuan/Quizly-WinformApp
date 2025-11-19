@@ -13,8 +13,10 @@ namespace Quizly.UI
         public User? CurrentUser { get; set; }
         private createQuizzControl? _createQuizControl;
         private doQuizzControl? _doQuizControl;
-        private historyControl? _historyControl; // Thêm field
-        private analyticControl? _analyticControl; // analytics control field
+        private historyControl? _historyControl;
+        private analyticControl? _analyticControl;
+        private AdminPanelControl? _adminPanelControl;
+        private UserManagementControl? _userManagementControl;
         private readonly QuizlyDbContext _db;
 
 
@@ -49,6 +51,12 @@ namespace Quizly.UI
             {
                 usernameLabel.Text = CurrentUser.DisplayName ?? CurrentUser.Email;
                 welcomeLabel.Text = $"Welcome back, {CurrentUser.DisplayName ?? CurrentUser.Email}";
+            }
+
+            // Show admin button only for admin users
+            if (adminBtn != null && CurrentUser != null)
+            {
+                adminBtn.Visible = CurrentUser.Role == Role.Admin;
             }
 
             // Load recent quizzes
@@ -309,6 +317,21 @@ namespace Quizly.UI
                 _analyticControl = null;
             }
 
+            // Remove admin controls if exist
+            if (_adminPanelControl != null)
+            {
+                contentPanel.Controls.Remove(_adminPanelControl);
+                _adminPanelControl.Dispose();
+                _adminPanelControl = null;
+            }
+
+            if (_userManagementControl != null)
+            {
+                contentPanel.Controls.Remove(_userManagementControl);
+                _userManagementControl.Dispose();
+                _userManagementControl = null;
+            }
+
             // If you need to reload static content designed in Designer,
             // you can call a method to restore / re-add controls.
             // LoadDashboard(); // optional
@@ -337,6 +360,61 @@ namespace Quizly.UI
         private void anaBtn_Click(object sender, EventArgs e)
         {
             ShowAnalyticControl();
+        }
+
+        // Call this method from a button or menu when you add the admin button
+        public void ShowAdminPanel()
+        {
+            if (CurrentUser?.Role != Role.Admin)
+            {
+                MessageBox.Show("Access denied. Admin privileges required.", "Access Denied",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            ShowAdminControl("panel");
+        }
+
+        public void ShowAdminControl(string section)
+        {
+            // Clear all existing controls
+            ShowMainContent();
+
+            switch (section.ToLower())
+            {
+                case "panel":
+                    if (_adminPanelControl == null)
+                    {
+                        _adminPanelControl = new AdminPanelControl(_db, CurrentUser!);
+                        _adminPanelControl.Dock = DockStyle.Fill;
+                        contentPanel.Controls.Add(_adminPanelControl);
+                        _adminPanelControl.BringToFront();
+                    }
+                    break;
+
+                case "users":
+                    if (_userManagementControl == null)
+                    {
+                        _userManagementControl = new UserManagementControl(_db, CurrentUser!);
+                        _userManagementControl.Dock = DockStyle.Fill;
+                        contentPanel.Controls.Add(_userManagementControl);
+                        _userManagementControl.BringToFront();
+                    }
+                    break;
+
+                case "quizzes":
+                    // Reuse existing create quiz control for now
+                    ShowCreateQuizControl();
+                    break;
+
+                case "analytics":
+                    ShowAnalyticControl();
+                    break;
+            }
+        }
+
+        private void adminBtn_Click(object sender, EventArgs e)
+        {
+            ShowAdminPanel();
         }
     }
 }

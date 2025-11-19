@@ -86,13 +86,31 @@ namespace Quizly.UI.UserUC
                 chartTrend.Plot.Clear();
 
                 // ScottPlot v5 API: use the fluent Add namespace
-                chartTrend.Plot.Add.Scatter(xs, ys);
+                var scatter = chartTrend.Plot.Add.Scatter(xs, ys);
+                scatter.LineWidth = 3;
+                scatter.Color = ScottPlot.Color.FromHex("#675DD3"); // Purple color
+                scatter.MarkerSize = 8;
+                scatter.MarkerShape = ScottPlot.MarkerShape.FilledCircle;
+                scatter.MarkerFillColor = ScottPlot.Color.FromHex("#4C3E93");
+                scatter.MarkerLineWidth = 0;
 
-                // ScottPlot v5: use SetAxisLimits to restrict X axis (use NaN for auto Y)
-                // Replace this line:
-                // chartTrend.Plot.SetAxisLimits(xs.First(), xs.Last(), double.NaN, double.NaN);
+                // Style the plot
+                chartTrend.Plot.Title("Quiz Attempts Trend (Last 30 Days)");
+                chartTrend.Plot.XLabel("Date");
+                chartTrend.Plot.YLabel("Number of Attempts");
+                
+                // Set background colors
+                chartTrend.Plot.FigureBackground.Color = ScottPlot.Color.FromHex("#FFFFFF");
+                chartTrend.Plot.DataBackground.Color = ScottPlot.Color.FromHex("#FAFAFA");
+                
+                // Grid styling
+                chartTrend.Plot.Grid.MajorLineColor = ScottPlot.Color.FromHex("#E8E8ED");
+                chartTrend.Plot.Grid.MajorLineWidth = 1;
 
-                // With this line:
+                // Format X-axis to show dates properly
+                chartTrend.Plot.Axes.DateTimeTicksBottom();
+
+                // Set axis limits
                 chartTrend.Plot.Axes.SetLimits(xs.First(), xs.Last());
 
                 chartTrend.Refresh();

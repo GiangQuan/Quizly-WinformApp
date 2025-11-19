@@ -101,7 +101,7 @@
             backBtn.FillColor2 = Color.FromArgb(103, 93, 238);
             backBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             backBtn.ForeColor = Color.White;
-            backBtn.Location = new Point(615, 35);
+            backBtn.Location = new Point(598, 35);
             backBtn.Name = "backBtn";
             backBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
             backBtn.Size = new Size(100, 33);
@@ -145,7 +145,7 @@
             mainPanel.ShadowDecoration.CustomizableEdges = customizableEdges12;
             mainPanel.ShadowDecoration.Depth = 10;
             mainPanel.ShadowDecoration.Enabled = true;
-            mainPanel.Size = new Size(674, 262);
+            mainPanel.Size = new Size(657, 262);
             mainPanel.TabIndex = 11;
             // 
             // timeTb
@@ -161,7 +161,7 @@
             timeTb.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             timeTb.Font = new Font("Segoe UI", 9F);
             timeTb.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            timeTb.Location = new Point(430, 189);
+            timeTb.Location = new Point(413, 189);
             timeTb.Name = "timeTb";
             timeTb.PlaceholderText = "Enter tags";
             timeTb.SelectedText = "";
@@ -175,7 +175,7 @@
             guna2HtmlLabel10.BackColor = Color.Transparent;
             guna2HtmlLabel10.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             guna2HtmlLabel10.ForeColor = Color.FromArgb(79, 65, 159);
-            guna2HtmlLabel10.Location = new Point(430, 153);
+            guna2HtmlLabel10.Location = new Point(413, 153);
             guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             guna2HtmlLabel10.Size = new Size(39, 23);
             guna2HtmlLabel10.TabIndex = 19;
@@ -187,7 +187,7 @@
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             guna2HtmlLabel5.ForeColor = Color.FromArgb(79, 65, 159);
-            guna2HtmlLabel5.Location = new Point(289, 61);
+            guna2HtmlLabel5.Location = new Point(272, 61);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(37, 23);
             guna2HtmlLabel5.TabIndex = 18;
@@ -206,7 +206,7 @@
             tagsTb.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             tagsTb.Font = new Font("Segoe UI", 9F);
             tagsTb.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            tagsTb.Location = new Point(289, 97);
+            tagsTb.Location = new Point(272, 97);
             tagsTb.Name = "tagsTb";
             tagsTb.PlaceholderText = "Enter tags";
             tagsTb.SelectedText = "";
@@ -243,7 +243,7 @@
             desTb.PlaceholderText = "Enter description";
             desTb.SelectedText = "";
             desTb.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            desTb.Size = new Size(381, 41);
+            desTb.Size = new Size(364, 41);
             desTb.TabIndex = 15;
             // 
             // guna2HtmlLabel3
@@ -276,7 +276,7 @@
             titleTb.PlaceholderText = "Enter quizz title";
             titleTb.SelectedText = "";
             titleTb.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            titleTb.Size = new Size(239, 41);
+            titleTb.Size = new Size(222, 41);
             titleTb.TabIndex = 13;
             // 
             // guna2HtmlLabel2
@@ -317,7 +317,7 @@
             guna2Button1.FillColor = Color.FromArgb(245, 245, 255);
             guna2Button1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.FromArgb(79, 65, 159);
-            guna2Button1.Location = new Point(595, 371);
+            guna2Button1.Location = new Point(578, 371);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2Button1.Size = new Size(121, 36);
@@ -385,7 +385,7 @@
             questionDgv.Location = new Point(4, 3);
             questionDgv.Name = "questionDgv";
             questionDgv.RowHeadersVisible = false;
-            questionDgv.Size = new Size(657, 152);
+            questionDgv.Size = new Size(640, 269);
             questionDgv.TabIndex = 37;
             questionDgv.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             questionDgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -420,7 +420,7 @@
             guna2Panel1.Location = new Point(42, 422);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            guna2Panel1.Size = new Size(674, 400);
+            guna2Panel1.Size = new Size(657, 400);
             guna2Panel1.TabIndex = 41;
             // 
             // cancelBtn
@@ -437,7 +437,7 @@
             cancelBtn.FillColor = Color.FromArgb(245, 245, 255);
             cancelBtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cancelBtn.ForeColor = Color.FromArgb(79, 65, 159);
-            cancelBtn.Location = new Point(176, 340);
+            cancelBtn.Location = new Point(159, 340);
             cancelBtn.Name = "cancelBtn";
             cancelBtn.ShadowDecoration.CustomizableEdges = customizableEdges16;
             cancelBtn.Size = new Size(158, 38);
@@ -459,7 +459,7 @@
             clearBtn.FillColor = Color.FromArgb(245, 245, 255);
             clearBtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             clearBtn.ForeColor = Color.FromArgb(79, 65, 159);
-            clearBtn.Location = new Point(353, 340);
+            clearBtn.Location = new Point(336, 340);
             clearBtn.Name = "clearBtn";
             clearBtn.ShadowDecoration.CustomizableEdges = customizableEdges18;
             clearBtn.Size = new Size(134, 38);
@@ -482,7 +482,7 @@
             saveBtn.FillColor2 = Color.FromArgb(103, 93, 238);
             saveBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             saveBtn.ForeColor = Color.White;
-            saveBtn.Location = new Point(505, 340);
+            saveBtn.Location = new Point(488, 340);
             saveBtn.Name = "saveBtn";
             saveBtn.ShadowDecoration.CustomizableEdges = customizableEdges20;
             saveBtn.Size = new Size(158, 38);
@@ -505,7 +505,7 @@
             exportBtn.FillColor2 = Color.FromArgb(228, 121, 72);
             exportBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             exportBtn.ForeColor = Color.White;
-            exportBtn.Location = new Point(395, 36);
+            exportBtn.Location = new Point(378, 36);
             exportBtn.Name = "exportBtn";
             exportBtn.ShadowDecoration.CustomizableEdges = customizableEdges24;
             exportBtn.Size = new Size(100, 33);
@@ -528,7 +528,7 @@
             importBtn.FillColor2 = Color.FromArgb(199, 208, 46);
             importBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             importBtn.ForeColor = Color.White;
-            importBtn.Location = new Point(505, 36);
+            importBtn.Location = new Point(488, 36);
             importBtn.Name = "importBtn";
             importBtn.ShadowDecoration.CustomizableEdges = customizableEdges26;
             importBtn.Size = new Size(100, 33);
@@ -550,7 +550,7 @@
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(backBtn);
             Name = "createQuizzControl";
-            Size = new Size(740, 513);
+            Size = new Size(723, 513);
             Load += createQuizzControl_Load;
             mainPanel.ResumeLayout(false);
             mainPanel.PerformLayout();

@@ -41,6 +41,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2AnimateWindow2 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
+            chkShowPassword = new CheckBox();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -59,9 +60,10 @@
             // 
             // guna2BorderlessForm1
             // 
-            guna2BorderlessForm1.BorderRadius = 25;
+            guna2BorderlessForm1.BorderRadius = 30;
             guna2BorderlessForm1.ContainerControl = this;
             guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            guna2BorderlessForm1.ShadowColor = Color.FromArgb(76, 62, 147);
             guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // guna2CustomGradientPanel1
@@ -118,7 +120,8 @@
             // guna2CustomGradientPanel2
             // 
             guna2CustomGradientPanel2.BackColor = Color.Transparent;
-            guna2CustomGradientPanel2.BorderRadius = 10;
+            guna2CustomGradientPanel2.BorderRadius = 20;
+            guna2CustomGradientPanel2.Controls.Add(chkShowPassword);
             guna2CustomGradientPanel2.Controls.Add(errorLabel);
             guna2CustomGradientPanel2.Controls.Add(loginBtn);
             guna2CustomGradientPanel2.Controls.Add(guna2HtmlLabel3);
@@ -127,20 +130,40 @@
             guna2CustomGradientPanel2.Controls.Add(txtEmail);
             guna2CustomGradientPanel2.Controls.Add(guna2HtmlLabel1);
             guna2CustomGradientPanel2.CustomizableEdges = customizableEdges7;
-            guna2CustomGradientPanel2.FillColor = Color.Gainsboro;
-            guna2CustomGradientPanel2.FillColor3 = Color.WhiteSmoke;
-            guna2CustomGradientPanel2.Location = new Point(525, 89);
+            guna2CustomGradientPanel2.FillColor = Color.White;
+            guna2CustomGradientPanel2.FillColor2 = Color.White;
+            guna2CustomGradientPanel2.FillColor3 = Color.FromArgb(250, 250, 252);
+            guna2CustomGradientPanel2.FillColor4 = Color.White;
+            guna2CustomGradientPanel2.Location = new Point(500, 70);
             guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
+            guna2CustomGradientPanel2.ShadowDecoration.BorderRadius = 20;
+            guna2CustomGradientPanel2.ShadowDecoration.Color = Color.FromArgb(50, 0, 0, 0);
             guna2CustomGradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2CustomGradientPanel2.Size = new Size(251, 290);
+            guna2CustomGradientPanel2.ShadowDecoration.Depth = 20;
+            guna2CustomGradientPanel2.ShadowDecoration.Enabled = true;
+            guna2CustomGradientPanel2.Size = new Size(320, 340);
             guna2CustomGradientPanel2.TabIndex = 0;
+            // 
+            // chkShowPassword
+            // 
+            chkShowPassword.AutoSize = true;
+            chkShowPassword.BackColor = Color.Transparent;
+            chkShowPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            chkShowPassword.ForeColor = Color.FromArgb(80, 80, 100);
+            chkShowPassword.Location = new Point(180, 215);
+            chkShowPassword.Name = "chkShowPassword";
+            chkShowPassword.Size = new Size(110, 19);
+            chkShowPassword.TabIndex = 7;
+            chkShowPassword.Text = "Show Password";
+            chkShowPassword.UseVisualStyleBackColor = false;
+            chkShowPassword.CheckedChanged += chkShowPassword_CheckedChanged;
             // 
             // errorLabel
             // 
             errorLabel.BackColor = Color.Transparent;
-            errorLabel.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            errorLabel.ForeColor = SystemColors.ControlDarkDark;
-            errorLabel.Location = new Point(22, 190);
+            errorLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            errorLabel.ForeColor = Color.FromArgb(220, 53, 69);
+            errorLabel.Location = new Point(30, 235);
             errorLabel.Name = "errorLabel";
             errorLabel.Size = new Size(3, 2);
             errorLabel.TabIndex = 6;
@@ -148,98 +171,106 @@
             // 
             // loginBtn
             // 
-            loginBtn.BorderRadius = 5;
+            loginBtn.BorderRadius = 10;
             loginBtn.CustomizableEdges = customizableEdges1;
             loginBtn.DisabledState.BorderColor = Color.DarkGray;
             loginBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             loginBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             loginBtn.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
             loginBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            loginBtn.FillColor = Color.FromArgb(0, 125, 250);
-            loginBtn.FillColor2 = Color.FromArgb(0, 125, 250);
-            loginBtn.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            loginBtn.FillColor = Color.FromArgb(76, 62, 147);
+            loginBtn.FillColor2 = Color.FromArgb(103, 93, 238);
+            loginBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             loginBtn.ForeColor = Color.White;
-            loginBtn.Location = new Point(22, 233);
+            loginBtn.Location = new Point(30, 260);
             loginBtn.Name = "loginBtn";
             loginBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            loginBtn.Size = new Size(201, 36);
+            loginBtn.Size = new Size(260, 45);
             loginBtn.TabIndex = 5;
-            loginBtn.Text = "Login now";
+            loginBtn.Text = "Login";
             loginBtn.Click += loginBtn_Click;
             // 
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel3.ForeColor = SystemColors.ControlDarkDark;
-            guna2HtmlLabel3.Location = new Point(22, 136);
+            guna2HtmlLabel3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2HtmlLabel3.ForeColor = Color.FromArgb(80, 80, 100);
+            guna2HtmlLabel3.Location = new Point(30, 145);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(61, 19);
+            guna2HtmlLabel3.Size = new Size(66, 19);
             guna2HtmlLabel3.TabIndex = 4;
             guna2HtmlLabel3.Text = "Password";
             // 
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel2.ForeColor = SystemColors.ControlDarkDark;
-            guna2HtmlLabel2.Location = new Point(22, 78);
+            guna2HtmlLabel2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2HtmlLabel2.ForeColor = Color.FromArgb(80, 80, 100);
+            guna2HtmlLabel2.Location = new Point(30, 80);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(64, 19);
+            guna2HtmlLabel2.Size = new Size(69, 19);
             guna2HtmlLabel2.TabIndex = 3;
             guna2HtmlLabel2.Text = "Username";
             // 
             // txtPassword
             // 
-            txtPassword.BorderRadius = 5;
+            txtPassword.BorderColor = Color.FromArgb(220, 220, 230);
+            txtPassword.BorderRadius = 8;
             txtPassword.CustomizableEdges = customizableEdges3;
             txtPassword.DefaultText = "";
             txtPassword.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtPassword.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtPassword.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtPassword.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Font = new Font("Segoe UI", 9F);
-            txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Location = new Point(22, 157);
+            txtPassword.FocusedState.BorderColor = Color.FromArgb(103, 93, 238);
+            txtPassword.Font = new Font("Segoe UI", 10F);
+            txtPassword.ForeColor = Color.FromArgb(50, 50, 70);
+            txtPassword.HoverState.BorderColor = Color.FromArgb(103, 93, 238);
+            txtPassword.Location = new Point(30, 170);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
-            txtPassword.PasswordChar = '*';
+            txtPassword.PasswordChar = '●';
+            txtPassword.PlaceholderForeColor = Color.FromArgb(150, 150, 170);
             txtPassword.PlaceholderText = "Enter your password";
             txtPassword.SelectedText = "";
             txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtPassword.Size = new Size(201, 27);
+            txtPassword.Size = new Size(260, 38);
             txtPassword.TabIndex = 2;
             // 
             // txtEmail
             // 
-            txtEmail.BorderRadius = 5;
+            txtEmail.BorderColor = Color.FromArgb(220, 220, 230);
+            txtEmail.BorderRadius = 8;
             txtEmail.CustomizableEdges = customizableEdges5;
             txtEmail.DefaultText = "";
             txtEmail.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtEmail.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtEmail.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtEmail.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Font = new Font("Segoe UI", 9F);
-            txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(22, 101);
+            txtEmail.FocusedState.BorderColor = Color.FromArgb(103, 93, 238);
+            txtEmail.Font = new Font("Segoe UI", 10F);
+            txtEmail.ForeColor = Color.FromArgb(50, 50, 70);
+            txtEmail.HoverState.BorderColor = Color.FromArgb(103, 93, 238);
+            txtEmail.Location = new Point(30, 105);
+            txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
+            txtEmail.PlaceholderForeColor = Color.FromArgb(150, 150, 170);
             txtEmail.PlaceholderText = "Enter your username";
             txtEmail.SelectedText = "";
             txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtEmail.Size = new Size(201, 25);
+            txtEmail.Size = new Size(260, 38);
             txtEmail.TabIndex = 1;
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.ForeColor = Color.DimGray;
-            guna2HtmlLabel1.Location = new Point(22, 24);
+            guna2HtmlLabel1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.ForeColor = Color.FromArgb(50, 50, 70);
+            guna2HtmlLabel1.Location = new Point(30, 30);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(201, 27);
+            guna2HtmlLabel1.Size = new Size(180, 34);
             guna2HtmlLabel1.TabIndex = 0;
-            guna2HtmlLabel1.Text = "Login to your account";
+            guna2HtmlLabel1.Text = "Welcome Back!";
             // 
             // LoginForm
             // 
@@ -275,5 +306,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private Guna.UI2.WinForms.Guna2HtmlLabel errorLabel;
+        private CheckBox chkShowPassword;
     }
 }
