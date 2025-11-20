@@ -23,25 +23,7 @@ namespace Quizly.UI
         public MainForm(QuizlyDbContext db)
         {
             _db = db ?? throw new ArgumentNullException(nameof(db));
-            InitializeComponent(); // gọi phiên bản do Designer sinh ra
-            // nếu bạn muốn thêm handler cho các control (nếu chưa auto-wire)
-            this.Load += MainForm_Load;
-
-            // đảm bảo event handlers cho các nút Designer (nếu chưa có)
-            if (logOutBtn != null)
-                logOutBtn.Click += logOutBtn_Click;
-
-            // Wire the createBtn click event
-            if (createBtn != null)
-                createBtn.Click += createBtn_Click;
-
-            // Wire the startBtn click event
-            if (startBtn != null)
-                startBtn.Click += startBtn_Click;
-
-            // Wire the historyBtn click event
-            if (historyBtn != null)
-                historyBtn.Click += historyBtn_Click;
+            InitializeComponent();
         }
 
         private void MainForm_Load(object? sender, EventArgs e)
@@ -69,60 +51,76 @@ namespace Quizly.UI
 
             try
             {
-                // Get the user's most recent quiz results
                 var recentResults = _db.Results
+                    .AsNoTracking()
                     .Where(r => r.UserId == CurrentUser.Id)
                     .Include(r => r.Quiz)
                     .OrderByDescending(r => r.TakenAt)
                     .Take(2)
                     .ToList();
 
-                // Clear existing panels in guna2GradientPanel7 (the container)
                 var containerPanel = contentPanel.Controls.OfType<Guna.UI2.WinForms.Guna2GradientPanel>()
                     .FirstOrDefault(p => p.Controls.OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
                         .Any(l => l.Text == "Your recently quizz"));
 
                 if (containerPanel == null) return;
 
-                // Remove old quiz panels (keep the title label)
-                var panelsToRemove = containerPanel.Controls.OfType<Guna.UI2.WinForms.Guna2GradientPanel>().ToList();
-                foreach (var panel in panelsToRemove)
-                {
-                    containerPanel.Controls.Remove(panel);
-                    panel.Dispose();
-                }
+                ClearOldPanels(containerPanel);
 
-                // Add recent quiz panels
-                int yPosition = 57;
-                foreach (var result in recentResults)
-                {
-                    var quizPanel = CreateRecentQuizPanel(result);
-                    quizPanel.Location = new Point(23, yPosition);
-                    containerPanel.Controls.Add(quizPanel);
-                    quizPanel.BringToFront();
-                    yPosition += 95; // Space between panels
-                }
-
-                // If no recent quizzes, show a message
                 if (!recentResults.Any())
                 {
-                    var noQuizLabel = new Guna.UI2.WinForms.Guna2HtmlLabel
-                    {
-                        BackColor = System.Drawing.Color.Transparent,
-                        Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold),
-                        ForeColor = System.Drawing.Color.White,
-                        Location = new System.Drawing.Point(23, 57),
-                        Text = "No recent quizzes. Start taking quizzes to see them here!",
-                        AutoSize = true
-                    };
-                    containerPanel.Controls.Add(noQuizLabel);
+                    ShowNoQuizzesMessage(containerPanel);
+                    return;
                 }
+
+                AddRecentQuizPanels(containerPanel, recentResults);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading recent quizzes: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowError($"Error loading recent quizzes: {ex.Message}");
             }
+        }
+
+        private void ClearOldPanels(Control containerPanel)
+        {
+            var panelsToRemove = containerPanel.Controls.OfType<Guna.UI2.WinForms.Guna2GradientPanel>().ToList();
+            foreach (var panel in panelsToRemove)
+            {
+                containerPanel.Controls.Remove(panel);
+                panel.Dispose();
+            }
+        }
+
+        private void ShowNoQuizzesMessage(Control containerPanel)
+        {
+            var noQuizLabel = new Guna.UI2.WinForms.Guna2HtmlLabel
+            {
+                BackColor = System.Drawing.Color.Transparent,
+                Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold),
+                ForeColor = System.Drawing.Color.White,
+                Location = new System.Drawing.Point(23, 57),
+                Text = "No recent quizzes. Start taking quizzes to see them here!",
+                AutoSize = true
+            };
+            containerPanel.Controls.Add(noQuizLabel);
+        }
+
+        private void AddRecentQuizPanels(Control containerPanel, List<Result> results)
+        {
+            int yPosition = 57;
+            foreach (var result in results)
+            {
+                var quizPanel = CreateRecentQuizPanel(result);
+                quizPanel.Location = new Point(23, yPosition);
+                containerPanel.Controls.Add(quizPanel);
+                quizPanel.BringToFront();
+                yPosition += 95;
+            }
+        }
+
+        private void ShowError(string message)
+        {
+            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private Guna.UI2.WinForms.Guna2GradientPanel CreateRecentQuizPanel(Result result)
@@ -193,21 +191,19 @@ namespace Quizly.UI
             try
             {
                 var result = _db.Results
+                    .AsNoTracking()
                     .Include(r => r.Quiz)
-                    .Include(r => r.Details)
-                        .ThenInclude(d => d.Question)
-                    .Include(r => r.Details)
-                        .ThenInclude(d => d.SelectedChoice)
                     .FirstOrDefault(r => r.Id == resultId);
 
                 if (result == null)
                 {
-                    MessageBox.Show("Quiz result not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowError("Quiz result not found.");
                     return;
                 }
 
+                var percentage = result.MaxScore > 0 ? (result.Score / result.MaxScore * 100) : 0;
                 var message = $"Quiz: {result.Quiz.Title}\n" +
-                             $"Score: {result.Score}/{result.MaxScore} ({(result.Score / result.MaxScore * 100):F1}%)\n" +
+                             $"Score: {result.Score}/{result.MaxScore} ({percentage:F1}%)\n" +
                              $"Duration: {result.Duration.TotalMinutes:F1} minutes\n" +
                              $"Taken: {result.TakenAt:g}";
 
@@ -215,8 +211,7 @@ namespace Quizly.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading result details: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowError($"Error loading result details: {ex.Message}");
             }
         }
 
@@ -282,59 +277,24 @@ namespace Quizly.UI
             _historyControl.BringToFront();
         }
 
-        // Restore main content
         public void ShowMainContent()
         {
-            // Remove create quiz control if exists
-            if (_createQuizControl != null)
-            {
-                contentPanel.Controls.Remove(_createQuizControl);
-                _createQuizControl.Dispose();
-                _createQuizControl = null;
-            }
+            DisposeControl(ref _createQuizControl);
+            DisposeControl(ref _doQuizControl);
+            DisposeControl(ref _historyControl);
+            DisposeControl(ref _analyticControl);
+            DisposeControl(ref _adminPanelControl);
+            DisposeControl(ref _userManagementControl);
+        }
 
-            // Remove do quiz control if exists
-            if (_doQuizControl != null)
+        private void DisposeControl<T>(ref T? control) where T : Control
+        {
+            if (control != null)
             {
-                contentPanel.Controls.Remove(_doQuizControl);
-                _doQuizControl.Dispose();
-                _doQuizControl = null;
+                contentPanel.Controls.Remove(control);
+                control.Dispose();
+                control = null;
             }
-
-            // Remove history control if exists
-            if (_historyControl != null)
-            {
-                contentPanel.Controls.Remove(_historyControl);
-                _historyControl.Dispose();
-                _historyControl = null;
-            }
-
-            // Remove analytics control if exists
-            if (_analyticControl != null)
-            {
-                contentPanel.Controls.Remove(_analyticControl);
-                _analyticControl.Dispose();
-                _analyticControl = null;
-            }
-
-            // Remove admin controls if exist
-            if (_adminPanelControl != null)
-            {
-                contentPanel.Controls.Remove(_adminPanelControl);
-                _adminPanelControl.Dispose();
-                _adminPanelControl = null;
-            }
-
-            if (_userManagementControl != null)
-            {
-                contentPanel.Controls.Remove(_userManagementControl);
-                _userManagementControl.Dispose();
-                _userManagementControl = null;
-            }
-
-            // If you need to reload static content designed in Designer,
-            // you can call a method to restore / re-add controls.
-            // LoadDashboard(); // optional
         }
 
         private void createBtn_Click(object sender, EventArgs e)
@@ -352,10 +312,7 @@ namespace Quizly.UI
             ShowHistoryControl();
         }
 
-        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e) { }
 
         private void anaBtn_Click(object sender, EventArgs e)
         {
