@@ -227,3 +227,4 @@ C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\De
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\ref\Quizly.UI.dll
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.UserUC.AdminPanelControl.resources
 C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.UserUC.QuickEditQuizForm.resources
+C:\Users\giangQuan\Documents\GitHub\Quizly-WinformApp\Quizly.UI\Quizly.UI\obj\Debug\net8.0-windows\Quizly.UI.UserUC.UserManagementControl.resources
